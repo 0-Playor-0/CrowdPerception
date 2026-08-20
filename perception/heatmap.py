@@ -62,16 +62,29 @@ from scipy.ndimage import gaussian_filter
 # read "2.5" or "4.0" as validated limits; they were picked so the render
 # reads correctly to a human, nothing more.
 #
-# Two ramp variants, same endpoints, different transition width around the
-# alarm onset:
-#   - COLOR_STOPS_HARD:  a ~0.2 persons/m^2-wide ramp into red right at 2.5.
-#     Sharp, maximally legible edge -- but a cell whose measured density
-#     oscillates across 2.5 frame to frame will visibly flicker between
-#     "orange" and "red".
-#   - COLOR_STOPS_EASED: the same endpoints, but the ramp into red starts
-#     earlier (~0.9 persons/m^2-wide) so the slope through the alarm point
-#     is gentler -- less flicker on borderline cells, at the cost of a
-#     less crisp-looking edge exactly at 2.5.
+# Two ramp variants, same endpoints (including the SAME single amber
+# reference colour), placed at a different distance before the alarm
+# onset -- this is what makes the final approach into 2.5 the single
+# steepest part of the WHOLE ramp for both variants (verified numerically,
+# see tests/test_heatmap.py's rate-comparison tests), not just "some
+# transition happens somewhere before 2.5":
+#   - COLOR_STOPS_HARD:  amber sits at 2.45, just 0.05 before the alarm
+#     onset -- almost the entire yellow-to-red journey happens in a hair's
+#     width, producing a near-step edge right at 2.5. Maximally legible,
+#     but a cell whose measured density oscillates across 2.5 frame to
+#     frame will visibly flicker between "amber" and "red".
+#   - COLOR_STOPS_EASED: amber sits at 2.0, half a persons/m^2 before the
+#     alarm onset -- same endpoints, same amber colour, but the approach
+#     into red is spread over 5x the density range, so consecutive frames'
+#     colours differ less for the same underlying density jitter.
+# An earlier version of this ramp placed amber at a fixed 1.0 for both
+# variants and eased's approach segment ended up SHALLOWER than its own
+# 0.0->1.0 segment -- i.e. the ramp was steeper somewhere in the middle of
+# the yellow band than at the actual alarm point, failing the "2.4->2.6
+# steeper than 1.0->1.2" check with real numbers. Fixed by tying amber's
+# position to how far before the onset each variant should start easing,
+# rather than pinning it to an unrelated fixed density value.
+#
 # Both stop lists are defined in "reference" persons/m^2 units (0 to
 # DEFAULT_DENSITY_VMAX_PERSONS_PER_M2); _piecewise_colormap rescales
 # whatever vmax a given GroundHeatmap actually uses onto this same 0..4.0
@@ -86,23 +99,20 @@ CRUSH_BENCHMARK_PERSONS_PER_M2 = 3.0
 
 _PALE_YELLOW = (200, 255, 255)   # BGR
 _AMBER = (0, 170, 255)
-_DEEP_ORANGE = (0, 100, 255)
 _ALARM_RED = (0, 30, 255)        # target colour AT the alarm onset, both variants
 _FULL_RED = (0, 0, 255)
 
 COLOR_STOPS_HARD: list[tuple[float, tuple[int, int, int]]] = [
     (0.0, _PALE_YELLOW),
-    (1.0, _AMBER),
-    (2.3, _DEEP_ORANGE),                          # still pre-alarm
-    (ALARM_ONSET_PERSONS_PER_M2, _ALARM_RED),      # 2.5 -- sharp jump, only 0.2 wide from the previous stop
+    (2.45, _AMBER),                                # only 0.05 before the alarm onset -- near-step edge
+    (ALARM_ONSET_PERSONS_PER_M2, _ALARM_RED),      # 2.5
     (DEFAULT_DENSITY_VMAX_PERSONS_PER_M2, _FULL_RED),
 ]
 
 COLOR_STOPS_EASED: list[tuple[float, tuple[int, int, int]]] = [
     (0.0, _PALE_YELLOW),
-    (1.0, _AMBER),
-    (1.6, _DEEP_ORANGE),                          # transition starts earlier
-    (ALARM_ONSET_PERSONS_PER_M2, _ALARM_RED),      # 2.5 -- same target colour, ~0.9-wide approach
+    (2.0, _AMBER),                                 # 0.5 before the alarm onset -- gentler approach
+    (ALARM_ONSET_PERSONS_PER_M2, _ALARM_RED),      # 2.5 -- same target colour as HARD
     (DEFAULT_DENSITY_VMAX_PERSONS_PER_M2, _FULL_RED),
 ]
 

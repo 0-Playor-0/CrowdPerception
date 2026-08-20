@@ -153,6 +153,41 @@ def test_hard_variant_transitions_more_steeply_than_eased_near_the_alarm_onset()
     )
 
 
+def _local_rate(stops, lo: float, hi: float) -> float:
+    """Finite-difference slope of the green channel (the only channel that
+    varies) between lo and hi persons/m^2, sampled finely so the estimate
+    isn't sensitive to exactly which two points land where relative to a
+    control point."""
+    fine = np.linspace(0.0, DEFAULT_DENSITY_VMAX_PERSONS_PER_M2, 40001)
+    green = _piecewise_colormap(fine, stops)[:, 1].astype(float)
+    i_lo = int(round(lo / DEFAULT_DENSITY_VMAX_PERSONS_PER_M2 * 40000))
+    i_hi = int(round(hi / DEFAULT_DENSITY_VMAX_PERSONS_PER_M2 * 40000))
+    return (green[i_hi] - green[i_lo]) / (hi - lo)
+
+
+@pytest.mark.parametrize("stops", [COLOR_STOPS_HARD, COLOR_STOPS_EASED])
+def test_rate_of_change_is_greater_at_the_alarm_onset_than_elsewhere(stops) -> None:
+    """Required behaviour, verified numerically (not by construction): the
+    colour must change FASTER per unit density across 2.4->2.6 (straddling
+    the alarm onset) than across an arbitrary earlier window like 1.0->1.2,
+    for BOTH variants -- not just hard vs. eased relative to each other.
+
+    This is a real regression test: an earlier version of COLOR_STOPS_EASED
+    (amber pinned to a fixed 1.0 persons/m^2 for both variants) FAILED this
+    exact check -- its 1.0->1.2 segment was steeper than its 2.4->2.6
+    segment (-120/unit vs -45/unit), because the earlier yellow-to-amber
+    leg happened to be compressed into a narrower band than the amber-to-
+    red approach into 2.5. Fixed by tying each variant's amber stop to a
+    fixed distance BEFORE the alarm onset instead of a fixed absolute value."""
+    rate_early = abs(_local_rate(stops, 1.0, 1.2))
+    rate_at_alarm = abs(_local_rate(stops, 2.4, 2.6))
+    assert rate_at_alarm > rate_early, (
+        f"rate at the alarm onset (2.4->2.6: {rate_at_alarm:.1f}/unit) must exceed the rate "
+        f"at an unrelated earlier window (1.0->1.2: {rate_early:.1f}/unit) -- otherwise the ramp "
+        f"isn't actually emphasising the alarm point, it's just steep somewhere"
+    )
+
+
 def test_crush_benchmark_is_past_the_alarm_onset() -> None:
     # Sanity-check the two named constants are in the order the docs/legend assume.
     assert 0.0 < ALARM_ONSET_PERSONS_PER_M2 < CRUSH_BENCHMARK_PERSONS_PER_M2 < DEFAULT_DENSITY_VMAX_PERSONS_PER_M2
