@@ -27,3 +27,4 @@ output/handcount_frames/
 # Full-resolution video-frame PNGs referenced by docs -- several MB each.
 # The markdown docs that cite them stay tracked; the images don't.
 docs/handcount/*.png
+.claude/
