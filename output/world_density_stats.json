@@ -1,0 +1,3802 @@
+{
+  "summary": {
+    "quad_area_m2": 41.3985,
+    "n_frames": 540,
+    "n_records": 4285,
+    "mean_quad_density_persons_per_m2": 0.0809655386512036,
+    "peak_quad_density_persons_per_m2": 0.24155464569972343,
+    "peak_quad_density_frame_id": 2,
+    "peak_quad_density_t_sec": 0.06666666666666667,
+    "peak_cell_density_persons_per_m2": 3.0,
+    "peak_cell_density_frame_id": 22,
+    "busiest_cell_ij_alltime_count": [
+      [
+        5,
+        3
+      ],
+      217
+    ],
+    "calibration": "HEIGHT-ESTIMATED, NOT MEASURED -- see docs/REAL_FOOTAGE_FINDINGS.md C2.4"
+  },
+  "density_over_time": [
+    {
+      "frame_id": 0,
+      "t_sec": 0.0,
+      "in_quad": 0,
+      "density_persons_per_m2": 0.0
+    },
+    {
+      "frame_id": 1,
+      "t_sec": 0.03333333333333333,
+      "in_quad": 7,
+      "density_persons_per_m2": 0.1690882519898064,
+      "peak_cell_density_persons_per_m2": 2.0
+    },
+    {
+      "frame_id": 2,
+      "t_sec": 0.06666666666666667,
+      "in_quad": 10,
+      "density_persons_per_m2": 0.24155464569972343,
+      "peak_cell_density_persons_per_m2": 2.0
+    },
+    {
+      "frame_id": 3,
+      "t_sec": 0.1,
+      "in_quad": 9,
+      "density_persons_per_m2": 0.2173991811297511,
+      "peak_cell_density_persons_per_m2": 2.0
+    },
+    {
+      "frame_id": 4,
+      "t_sec": 0.13333333333333333,
+      "in_quad": 3,
+      "density_persons_per_m2": 0.07246639370991703,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 5,
+      "t_sec": 0.16666666666666666,
+      "in_quad": 1,
+      "density_persons_per_m2": 0.02415546456997234,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 6,
+      "t_sec": 0.2,
+      "in_quad": 1,
+      "density_persons_per_m2": 0.02415546456997234,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 7,
+      "t_sec": 0.23333333333333334,
+      "in_quad": 0,
+      "density_persons_per_m2": 0.0,
+      "peak_cell_density_persons_per_m2": 0.0
+    },
+    {
+      "frame_id": 8,
+      "t_sec": 0.26666666666666666,
+      "in_quad": 2,
+      "density_persons_per_m2": 0.04831092913994468,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 9,
+      "t_sec": 0.3,
+      "in_quad": 3,
+      "density_persons_per_m2": 0.07246639370991703,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 10,
+      "t_sec": 0.3333333333333333,
+      "in_quad": 5,
+      "density_persons_per_m2": 0.12077732284986172,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 11,
+      "t_sec": 0.36666666666666664,
+      "in_quad": 3,
+      "density_persons_per_m2": 0.07246639370991703,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 12,
+      "t_sec": 0.4,
+      "in_quad": 6,
+      "density_persons_per_m2": 0.14493278741983406,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 13,
+      "t_sec": 0.43333333333333335,
+      "in_quad": 2,
+      "density_persons_per_m2": 0.04831092913994468,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 14,
+      "t_sec": 0.4666666666666667,
+      "in_quad": 2,
+      "density_persons_per_m2": 0.04831092913994468,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 15,
+      "t_sec": 0.5,
+      "in_quad": 1,
+      "density_persons_per_m2": 0.02415546456997234,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 16,
+      "t_sec": 0.5333333333333333,
+      "in_quad": 4,
+      "density_persons_per_m2": 0.09662185827988937,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 17,
+      "t_sec": 0.5666666666666667,
+      "in_quad": 0,
+      "density_persons_per_m2": 0.0,
+      "peak_cell_density_persons_per_m2": 0.0
+    },
+    {
+      "frame_id": 18,
+      "t_sec": 0.6,
+      "in_quad": 2,
+      "density_persons_per_m2": 0.04831092913994468,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 19,
+      "t_sec": 0.6333333333333333,
+      "in_quad": 1,
+      "density_persons_per_m2": 0.02415546456997234,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 20,
+      "t_sec": 0.6666666666666666,
+      "in_quad": 2,
+      "density_persons_per_m2": 0.04831092913994468,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 21,
+      "t_sec": 0.7,
+      "in_quad": 3,
+      "density_persons_per_m2": 0.07246639370991703,
+      "peak_cell_density_persons_per_m2": 2.0
+    },
+    {
+      "frame_id": 22,
+      "t_sec": 0.7333333333333333,
+      "in_quad": 3,
+      "density_persons_per_m2": 0.07246639370991703,
+      "peak_cell_density_persons_per_m2": 3.0
+    },
+    {
+      "frame_id": 23,
+      "t_sec": 0.7666666666666667,
+      "in_quad": 3,
+      "density_persons_per_m2": 0.07246639370991703,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 24,
+      "t_sec": 0.8,
+      "in_quad": 3,
+      "density_persons_per_m2": 0.07246639370991703,
+      "peak_cell_density_persons_per_m2": 2.0
+    },
+    {
+      "frame_id": 25,
+      "t_sec": 0.8333333333333334,
+      "in_quad": 2,
+      "density_persons_per_m2": 0.04831092913994468,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 26,
+      "t_sec": 0.8666666666666667,
+      "in_quad": 2,
+      "density_persons_per_m2": 0.04831092913994468,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 27,
+      "t_sec": 0.9,
+      "in_quad": 3,
+      "density_persons_per_m2": 0.07246639370991703,
+      "peak_cell_density_persons_per_m2": 2.0
+    },
+    {
+      "frame_id": 28,
+      "t_sec": 0.9333333333333333,
+      "in_quad": 0,
+      "density_persons_per_m2": 0.0,
+      "peak_cell_density_persons_per_m2": 0.0
+    },
+    {
+      "frame_id": 29,
+      "t_sec": 0.9666666666666667,
+      "in_quad": 2,
+      "density_persons_per_m2": 0.04831092913994468,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 30,
+      "t_sec": 1.0,
+      "in_quad": 2,
+      "density_persons_per_m2": 0.04831092913994468,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 31,
+      "t_sec": 1.0333333333333334,
+      "in_quad": 3,
+      "density_persons_per_m2": 0.07246639370991703,
+      "peak_cell_density_persons_per_m2": 2.0
+    },
+    {
+      "frame_id": 32,
+      "t_sec": 1.0666666666666667,
+      "in_quad": 1,
+      "density_persons_per_m2": 0.02415546456997234,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 33,
+      "t_sec": 1.1,
+      "in_quad": 2,
+      "density_persons_per_m2": 0.04831092913994468,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 34,
+      "t_sec": 1.1333333333333333,
+      "in_quad": 4,
+      "density_persons_per_m2": 0.09662185827988937,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 35,
+      "t_sec": 1.1666666666666667,
+      "in_quad": 5,
+      "density_persons_per_m2": 0.12077732284986172,
+      "peak_cell_density_persons_per_m2": 2.0
+    },
+    {
+      "frame_id": 36,
+      "t_sec": 1.2,
+      "in_quad": 4,
+      "density_persons_per_m2": 0.09662185827988937,
+      "peak_cell_density_persons_per_m2": 2.0
+    },
+    {
+      "frame_id": 37,
+      "t_sec": 1.2333333333333334,
+      "in_quad": 6,
+      "density_persons_per_m2": 0.14493278741983406,
+      "peak_cell_density_persons_per_m2": 2.0
+    },
+    {
+      "frame_id": 38,
+      "t_sec": 1.2666666666666666,
+      "in_quad": 4,
+      "density_persons_per_m2": 0.09662185827988937,
+      "peak_cell_density_persons_per_m2": 2.0
+    },
+    {
+      "frame_id": 39,
+      "t_sec": 1.3,
+      "in_quad": 3,
+      "density_persons_per_m2": 0.07246639370991703,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 40,
+      "t_sec": 1.3333333333333333,
+      "in_quad": 1,
+      "density_persons_per_m2": 0.02415546456997234,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 41,
+      "t_sec": 1.3666666666666667,
+      "in_quad": 1,
+      "density_persons_per_m2": 0.02415546456997234,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 42,
+      "t_sec": 1.4,
+      "in_quad": 0,
+      "density_persons_per_m2": 0.0,
+      "peak_cell_density_persons_per_m2": 0.0
+    },
+    {
+      "frame_id": 43,
+      "t_sec": 1.4333333333333333,
+      "in_quad": 2,
+      "density_persons_per_m2": 0.04831092913994468,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 44,
+      "t_sec": 1.4666666666666666,
+      "in_quad": 3,
+      "density_persons_per_m2": 0.07246639370991703,
+      "peak_cell_density_persons_per_m2": 2.0
+    },
+    {
+      "frame_id": 45,
+      "t_sec": 1.5,
+      "in_quad": 1,
+      "density_persons_per_m2": 0.02415546456997234,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 46,
+      "t_sec": 1.5333333333333334,
+      "in_quad": 2,
+      "density_persons_per_m2": 0.04831092913994468,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 47,
+      "t_sec": 1.5666666666666667,
+      "in_quad": 2,
+      "density_persons_per_m2": 0.04831092913994468,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 48,
+      "t_sec": 1.6,
+      "in_quad": 3,
+      "density_persons_per_m2": 0.07246639370991703,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 49,
+      "t_sec": 1.6333333333333333,
+      "in_quad": 1,
+      "density_persons_per_m2": 0.02415546456997234,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 50,
+      "t_sec": 1.6666666666666667,
+      "in_quad": 1,
+      "density_persons_per_m2": 0.02415546456997234,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 51,
+      "t_sec": 1.7,
+      "in_quad": 0,
+      "density_persons_per_m2": 0.0,
+      "peak_cell_density_persons_per_m2": 0.0
+    },
+    {
+      "frame_id": 52,
+      "t_sec": 1.7333333333333334,
+      "in_quad": 1,
+      "density_persons_per_m2": 0.02415546456997234,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 53,
+      "t_sec": 1.7666666666666666,
+      "in_quad": 3,
+      "density_persons_per_m2": 0.07246639370991703,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 54,
+      "t_sec": 1.8,
+      "in_quad": 2,
+      "density_persons_per_m2": 0.04831092913994468,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 55,
+      "t_sec": 1.8333333333333333,
+      "in_quad": 2,
+      "density_persons_per_m2": 0.04831092913994468,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 56,
+      "t_sec": 1.8666666666666667,
+      "in_quad": 1,
+      "density_persons_per_m2": 0.02415546456997234,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 57,
+      "t_sec": 1.9,
+      "in_quad": 2,
+      "density_persons_per_m2": 0.04831092913994468,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 58,
+      "t_sec": 1.9333333333333333,
+      "in_quad": 3,
+      "density_persons_per_m2": 0.07246639370991703,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 59,
+      "t_sec": 1.9666666666666666,
+      "in_quad": 2,
+      "density_persons_per_m2": 0.04831092913994468,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 60,
+      "t_sec": 2.0,
+      "in_quad": 3,
+      "density_persons_per_m2": 0.07246639370991703,
+      "peak_cell_density_persons_per_m2": 2.0
+    },
+    {
+      "frame_id": 61,
+      "t_sec": 2.033333333333333,
+      "in_quad": 3,
+      "density_persons_per_m2": 0.07246639370991703,
+      "peak_cell_density_persons_per_m2": 2.0
+    },
+    {
+      "frame_id": 62,
+      "t_sec": 2.066666666666667,
+      "in_quad": 2,
+      "density_persons_per_m2": 0.04831092913994468,
+      "peak_cell_density_persons_per_m2": 2.0
+    },
+    {
+      "frame_id": 63,
+      "t_sec": 2.1,
+      "in_quad": 3,
+      "density_persons_per_m2": 0.07246639370991703,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 64,
+      "t_sec": 2.1333333333333333,
+      "in_quad": 1,
+      "density_persons_per_m2": 0.02415546456997234,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 65,
+      "t_sec": 2.1666666666666665,
+      "in_quad": 4,
+      "density_persons_per_m2": 0.09662185827988937,
+      "peak_cell_density_persons_per_m2": 2.0
+    },
+    {
+      "frame_id": 66,
+      "t_sec": 2.2,
+      "in_quad": 2,
+      "density_persons_per_m2": 0.04831092913994468,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 67,
+      "t_sec": 2.2333333333333334,
+      "in_quad": 2,
+      "density_persons_per_m2": 0.04831092913994468,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 68,
+      "t_sec": 2.2666666666666666,
+      "in_quad": 5,
+      "density_persons_per_m2": 0.12077732284986172,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 69,
+      "t_sec": 2.3,
+      "in_quad": 5,
+      "density_persons_per_m2": 0.12077732284986172,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 70,
+      "t_sec": 2.3333333333333335,
+      "in_quad": 3,
+      "density_persons_per_m2": 0.07246639370991703,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 71,
+      "t_sec": 2.3666666666666667,
+      "in_quad": 4,
+      "density_persons_per_m2": 0.09662185827988937,
+      "peak_cell_density_persons_per_m2": 2.0
+    },
+    {
+      "frame_id": 72,
+      "t_sec": 2.4,
+      "in_quad": 0,
+      "density_persons_per_m2": 0.0,
+      "peak_cell_density_persons_per_m2": 0.0
+    },
+    {
+      "frame_id": 73,
+      "t_sec": 2.433333333333333,
+      "in_quad": 1,
+      "density_persons_per_m2": 0.02415546456997234,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 74,
+      "t_sec": 2.466666666666667,
+      "in_quad": 0,
+      "density_persons_per_m2": 0.0,
+      "peak_cell_density_persons_per_m2": 0.0
+    },
+    {
+      "frame_id": 75,
+      "t_sec": 2.5,
+      "in_quad": 2,
+      "density_persons_per_m2": 0.04831092913994468,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 76,
+      "t_sec": 2.533333333333333,
+      "in_quad": 1,
+      "density_persons_per_m2": 0.02415546456997234,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 77,
+      "t_sec": 2.566666666666667,
+      "in_quad": 2,
+      "density_persons_per_m2": 0.04831092913994468,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 78,
+      "t_sec": 2.6,
+      "in_quad": 2,
+      "density_persons_per_m2": 0.04831092913994468,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 79,
+      "t_sec": 2.6333333333333333,
+      "in_quad": 2,
+      "density_persons_per_m2": 0.04831092913994468,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 80,
+      "t_sec": 2.6666666666666665,
+      "in_quad": 3,
+      "density_persons_per_m2": 0.07246639370991703,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 81,
+      "t_sec": 2.7,
+      "in_quad": 2,
+      "density_persons_per_m2": 0.04831092913994468,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 82,
+      "t_sec": 2.7333333333333334,
+      "in_quad": 2,
+      "density_persons_per_m2": 0.04831092913994468,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 83,
+      "t_sec": 2.7666666666666666,
+      "in_quad": 1,
+      "density_persons_per_m2": 0.02415546456997234,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 84,
+      "t_sec": 2.8,
+      "in_quad": 1,
+      "density_persons_per_m2": 0.02415546456997234,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 85,
+      "t_sec": 2.8333333333333335,
+      "in_quad": 3,
+      "density_persons_per_m2": 0.07246639370991703,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 86,
+      "t_sec": 2.8666666666666667,
+      "in_quad": 3,
+      "density_persons_per_m2": 0.07246639370991703,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 87,
+      "t_sec": 2.9,
+      "in_quad": 2,
+      "density_persons_per_m2": 0.04831092913994468,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 88,
+      "t_sec": 2.933333333333333,
+      "in_quad": 2,
+      "density_persons_per_m2": 0.04831092913994468,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 89,
+      "t_sec": 2.966666666666667,
+      "in_quad": 2,
+      "density_persons_per_m2": 0.04831092913994468,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 90,
+      "t_sec": 3.0,
+      "in_quad": 1,
+      "density_persons_per_m2": 0.02415546456997234,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 91,
+      "t_sec": 3.033333333333333,
+      "in_quad": 0,
+      "density_persons_per_m2": 0.0,
+      "peak_cell_density_persons_per_m2": 0.0
+    },
+    {
+      "frame_id": 92,
+      "t_sec": 3.066666666666667,
+      "in_quad": 1,
+      "density_persons_per_m2": 0.02415546456997234,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 93,
+      "t_sec": 3.1,
+      "in_quad": 1,
+      "density_persons_per_m2": 0.02415546456997234,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 94,
+      "t_sec": 3.1333333333333333,
+      "in_quad": 1,
+      "density_persons_per_m2": 0.02415546456997234,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 95,
+      "t_sec": 3.1666666666666665,
+      "in_quad": 1,
+      "density_persons_per_m2": 0.02415546456997234,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 96,
+      "t_sec": 3.2,
+      "in_quad": 3,
+      "density_persons_per_m2": 0.07246639370991703,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 97,
+      "t_sec": 3.2333333333333334,
+      "in_quad": 3,
+      "density_persons_per_m2": 0.07246639370991703,
+      "peak_cell_density_persons_per_m2": 2.0
+    },
+    {
+      "frame_id": 98,
+      "t_sec": 3.2666666666666666,
+      "in_quad": 6,
+      "density_persons_per_m2": 0.14493278741983406,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 99,
+      "t_sec": 3.3,
+      "in_quad": 5,
+      "density_persons_per_m2": 0.12077732284986172,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 100,
+      "t_sec": 3.3333333333333335,
+      "in_quad": 4,
+      "density_persons_per_m2": 0.09662185827988937,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 101,
+      "t_sec": 3.3666666666666667,
+      "in_quad": 5,
+      "density_persons_per_m2": 0.12077732284986172,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 102,
+      "t_sec": 3.4,
+      "in_quad": 2,
+      "density_persons_per_m2": 0.04831092913994468,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 103,
+      "t_sec": 3.433333333333333,
+      "in_quad": 2,
+      "density_persons_per_m2": 0.04831092913994468,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 104,
+      "t_sec": 3.466666666666667,
+      "in_quad": 3,
+      "density_persons_per_m2": 0.07246639370991703,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 105,
+      "t_sec": 3.5,
+      "in_quad": 5,
+      "density_persons_per_m2": 0.12077732284986172,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 106,
+      "t_sec": 3.533333333333333,
+      "in_quad": 5,
+      "density_persons_per_m2": 0.12077732284986172,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 107,
+      "t_sec": 3.566666666666667,
+      "in_quad": 7,
+      "density_persons_per_m2": 0.1690882519898064,
+      "peak_cell_density_persons_per_m2": 2.0
+    },
+    {
+      "frame_id": 108,
+      "t_sec": 3.6,
+      "in_quad": 8,
+      "density_persons_per_m2": 0.19324371655977873,
+      "peak_cell_density_persons_per_m2": 2.0
+    },
+    {
+      "frame_id": 109,
+      "t_sec": 3.6333333333333333,
+      "in_quad": 8,
+      "density_persons_per_m2": 0.19324371655977873,
+      "peak_cell_density_persons_per_m2": 2.0
+    },
+    {
+      "frame_id": 110,
+      "t_sec": 3.6666666666666665,
+      "in_quad": 3,
+      "density_persons_per_m2": 0.07246639370991703,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 111,
+      "t_sec": 3.7,
+      "in_quad": 4,
+      "density_persons_per_m2": 0.09662185827988937,
+      "peak_cell_density_persons_per_m2": 2.0
+    },
+    {
+      "frame_id": 112,
+      "t_sec": 3.7333333333333334,
+      "in_quad": 3,
+      "density_persons_per_m2": 0.07246639370991703,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 113,
+      "t_sec": 3.7666666666666666,
+      "in_quad": 2,
+      "density_persons_per_m2": 0.04831092913994468,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 114,
+      "t_sec": 3.8,
+      "in_quad": 4,
+      "density_persons_per_m2": 0.09662185827988937,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 115,
+      "t_sec": 3.8333333333333335,
+      "in_quad": 3,
+      "density_persons_per_m2": 0.07246639370991703,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 116,
+      "t_sec": 3.8666666666666667,
+      "in_quad": 5,
+      "density_persons_per_m2": 0.12077732284986172,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 117,
+      "t_sec": 3.9,
+      "in_quad": 4,
+      "density_persons_per_m2": 0.09662185827988937,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 118,
+      "t_sec": 3.933333333333333,
+      "in_quad": 5,
+      "density_persons_per_m2": 0.12077732284986172,
+      "peak_cell_density_persons_per_m2": 2.0
+    },
+    {
+      "frame_id": 119,
+      "t_sec": 3.966666666666667,
+      "in_quad": 5,
+      "density_persons_per_m2": 0.12077732284986172,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 120,
+      "t_sec": 4.0,
+      "in_quad": 5,
+      "density_persons_per_m2": 0.12077732284986172,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 121,
+      "t_sec": 4.033333333333333,
+      "in_quad": 6,
+      "density_persons_per_m2": 0.14493278741983406,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 122,
+      "t_sec": 4.066666666666666,
+      "in_quad": 3,
+      "density_persons_per_m2": 0.07246639370991703,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 123,
+      "t_sec": 4.1,
+      "in_quad": 3,
+      "density_persons_per_m2": 0.07246639370991703,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 124,
+      "t_sec": 4.133333333333334,
+      "in_quad": 1,
+      "density_persons_per_m2": 0.02415546456997234,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 125,
+      "t_sec": 4.166666666666667,
+      "in_quad": 2,
+      "density_persons_per_m2": 0.04831092913994468,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 126,
+      "t_sec": 4.2,
+      "in_quad": 1,
+      "density_persons_per_m2": 0.02415546456997234,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 127,
+      "t_sec": 4.233333333333333,
+      "in_quad": 1,
+      "density_persons_per_m2": 0.02415546456997234,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 128,
+      "t_sec": 4.266666666666667,
+      "in_quad": 1,
+      "density_persons_per_m2": 0.02415546456997234,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 129,
+      "t_sec": 4.3,
+      "in_quad": 1,
+      "density_persons_per_m2": 0.02415546456997234,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 130,
+      "t_sec": 4.333333333333333,
+      "in_quad": 2,
+      "density_persons_per_m2": 0.04831092913994468,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 131,
+      "t_sec": 4.366666666666666,
+      "in_quad": 6,
+      "density_persons_per_m2": 0.14493278741983406,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 132,
+      "t_sec": 4.4,
+      "in_quad": 4,
+      "density_persons_per_m2": 0.09662185827988937,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 133,
+      "t_sec": 4.433333333333334,
+      "in_quad": 6,
+      "density_persons_per_m2": 0.14493278741983406,
+      "peak_cell_density_persons_per_m2": 2.0
+    },
+    {
+      "frame_id": 134,
+      "t_sec": 4.466666666666667,
+      "in_quad": 7,
+      "density_persons_per_m2": 0.1690882519898064,
+      "peak_cell_density_persons_per_m2": 3.0
+    },
+    {
+      "frame_id": 135,
+      "t_sec": 4.5,
+      "in_quad": 4,
+      "density_persons_per_m2": 0.09662185827988937,
+      "peak_cell_density_persons_per_m2": 2.0
+    },
+    {
+      "frame_id": 136,
+      "t_sec": 4.533333333333333,
+      "in_quad": 4,
+      "density_persons_per_m2": 0.09662185827988937,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 137,
+      "t_sec": 4.566666666666666,
+      "in_quad": 2,
+      "density_persons_per_m2": 0.04831092913994468,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 138,
+      "t_sec": 4.6,
+      "in_quad": 3,
+      "density_persons_per_m2": 0.07246639370991703,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 139,
+      "t_sec": 4.633333333333334,
+      "in_quad": 2,
+      "density_persons_per_m2": 0.04831092913994468,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 140,
+      "t_sec": 4.666666666666667,
+      "in_quad": 5,
+      "density_persons_per_m2": 0.12077732284986172,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 141,
+      "t_sec": 4.7,
+      "in_quad": 2,
+      "density_persons_per_m2": 0.04831092913994468,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 142,
+      "t_sec": 4.733333333333333,
+      "in_quad": 3,
+      "density_persons_per_m2": 0.07246639370991703,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 143,
+      "t_sec": 4.766666666666667,
+      "in_quad": 3,
+      "density_persons_per_m2": 0.07246639370991703,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 144,
+      "t_sec": 4.8,
+      "in_quad": 4,
+      "density_persons_per_m2": 0.09662185827988937,
+      "peak_cell_density_persons_per_m2": 2.0
+    },
+    {
+      "frame_id": 145,
+      "t_sec": 4.833333333333333,
+      "in_quad": 4,
+      "density_persons_per_m2": 0.09662185827988937,
+      "peak_cell_density_persons_per_m2": 2.0
+    },
+    {
+      "frame_id": 146,
+      "t_sec": 4.866666666666666,
+      "in_quad": 3,
+      "density_persons_per_m2": 0.07246639370991703,
+      "peak_cell_density_persons_per_m2": 2.0
+    },
+    {
+      "frame_id": 147,
+      "t_sec": 4.9,
+      "in_quad": 3,
+      "density_persons_per_m2": 0.07246639370991703,
+      "peak_cell_density_persons_per_m2": 2.0
+    },
+    {
+      "frame_id": 148,
+      "t_sec": 4.933333333333334,
+      "in_quad": 3,
+      "density_persons_per_m2": 0.07246639370991703,
+      "peak_cell_density_persons_per_m2": 2.0
+    },
+    {
+      "frame_id": 149,
+      "t_sec": 4.966666666666667,
+      "in_quad": 1,
+      "density_persons_per_m2": 0.02415546456997234,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 150,
+      "t_sec": 5.0,
+      "in_quad": 3,
+      "density_persons_per_m2": 0.07246639370991703,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 151,
+      "t_sec": 5.033333333333333,
+      "in_quad": 2,
+      "density_persons_per_m2": 0.04831092913994468,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 152,
+      "t_sec": 5.066666666666666,
+      "in_quad": 5,
+      "density_persons_per_m2": 0.12077732284986172,
+      "peak_cell_density_persons_per_m2": 2.0
+    },
+    {
+      "frame_id": 153,
+      "t_sec": 5.1,
+      "in_quad": 4,
+      "density_persons_per_m2": 0.09662185827988937,
+      "peak_cell_density_persons_per_m2": 2.0
+    },
+    {
+      "frame_id": 154,
+      "t_sec": 5.133333333333334,
+      "in_quad": 2,
+      "density_persons_per_m2": 0.04831092913994468,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 155,
+      "t_sec": 5.166666666666667,
+      "in_quad": 1,
+      "density_persons_per_m2": 0.02415546456997234,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 156,
+      "t_sec": 5.2,
+      "in_quad": 4,
+      "density_persons_per_m2": 0.09662185827988937,
+      "peak_cell_density_persons_per_m2": 2.0
+    },
+    {
+      "frame_id": 157,
+      "t_sec": 5.233333333333333,
+      "in_quad": 5,
+      "density_persons_per_m2": 0.12077732284986172,
+      "peak_cell_density_persons_per_m2": 2.0
+    },
+    {
+      "frame_id": 158,
+      "t_sec": 5.266666666666667,
+      "in_quad": 3,
+      "density_persons_per_m2": 0.07246639370991703,
+      "peak_cell_density_persons_per_m2": 2.0
+    },
+    {
+      "frame_id": 159,
+      "t_sec": 5.3,
+      "in_quad": 3,
+      "density_persons_per_m2": 0.07246639370991703,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 160,
+      "t_sec": 5.333333333333333,
+      "in_quad": 3,
+      "density_persons_per_m2": 0.07246639370991703,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 161,
+      "t_sec": 5.366666666666666,
+      "in_quad": 4,
+      "density_persons_per_m2": 0.09662185827988937,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 162,
+      "t_sec": 5.4,
+      "in_quad": 3,
+      "density_persons_per_m2": 0.07246639370991703,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 163,
+      "t_sec": 5.433333333333334,
+      "in_quad": 5,
+      "density_persons_per_m2": 0.12077732284986172,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 164,
+      "t_sec": 5.466666666666667,
+      "in_quad": 3,
+      "density_persons_per_m2": 0.07246639370991703,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 165,
+      "t_sec": 5.5,
+      "in_quad": 4,
+      "density_persons_per_m2": 0.09662185827988937,
+      "peak_cell_density_persons_per_m2": 2.0
+    },
+    {
+      "frame_id": 166,
+      "t_sec": 5.533333333333333,
+      "in_quad": 4,
+      "density_persons_per_m2": 0.09662185827988937,
+      "peak_cell_density_persons_per_m2": 2.0
+    },
+    {
+      "frame_id": 167,
+      "t_sec": 5.566666666666666,
+      "in_quad": 3,
+      "density_persons_per_m2": 0.07246639370991703,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 168,
+      "t_sec": 5.6,
+      "in_quad": 3,
+      "density_persons_per_m2": 0.07246639370991703,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 169,
+      "t_sec": 5.633333333333334,
+      "in_quad": 4,
+      "density_persons_per_m2": 0.09662185827988937,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 170,
+      "t_sec": 5.666666666666667,
+      "in_quad": 8,
+      "density_persons_per_m2": 0.19324371655977873,
+      "peak_cell_density_persons_per_m2": 2.0
+    },
+    {
+      "frame_id": 171,
+      "t_sec": 5.7,
+      "in_quad": 4,
+      "density_persons_per_m2": 0.09662185827988937,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 172,
+      "t_sec": 5.733333333333333,
+      "in_quad": 3,
+      "density_persons_per_m2": 0.07246639370991703,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 173,
+      "t_sec": 5.766666666666667,
+      "in_quad": 4,
+      "density_persons_per_m2": 0.09662185827988937,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 174,
+      "t_sec": 5.8,
+      "in_quad": 4,
+      "density_persons_per_m2": 0.09662185827988937,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 175,
+      "t_sec": 5.833333333333333,
+      "in_quad": 3,
+      "density_persons_per_m2": 0.07246639370991703,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 176,
+      "t_sec": 5.866666666666666,
+      "in_quad": 3,
+      "density_persons_per_m2": 0.07246639370991703,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 177,
+      "t_sec": 5.9,
+      "in_quad": 2,
+      "density_persons_per_m2": 0.04831092913994468,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 178,
+      "t_sec": 5.933333333333334,
+      "in_quad": 1,
+      "density_persons_per_m2": 0.02415546456997234,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 179,
+      "t_sec": 5.966666666666667,
+      "in_quad": 0,
+      "density_persons_per_m2": 0.0,
+      "peak_cell_density_persons_per_m2": 0.0
+    },
+    {
+      "frame_id": 180,
+      "t_sec": 6.0,
+      "in_quad": 1,
+      "density_persons_per_m2": 0.02415546456997234,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 181,
+      "t_sec": 6.033333333333333,
+      "in_quad": 3,
+      "density_persons_per_m2": 0.07246639370991703,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 182,
+      "t_sec": 6.066666666666666,
+      "in_quad": 3,
+      "density_persons_per_m2": 0.07246639370991703,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 183,
+      "t_sec": 6.1,
+      "in_quad": 3,
+      "density_persons_per_m2": 0.07246639370991703,
+      "peak_cell_density_persons_per_m2": 2.0
+    },
+    {
+      "frame_id": 184,
+      "t_sec": 6.133333333333334,
+      "in_quad": 2,
+      "density_persons_per_m2": 0.04831092913994468,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 185,
+      "t_sec": 6.166666666666667,
+      "in_quad": 0,
+      "density_persons_per_m2": 0.0,
+      "peak_cell_density_persons_per_m2": 0.0
+    },
+    {
+      "frame_id": 186,
+      "t_sec": 6.2,
+      "in_quad": 1,
+      "density_persons_per_m2": 0.02415546456997234,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 187,
+      "t_sec": 6.233333333333333,
+      "in_quad": 5,
+      "density_persons_per_m2": 0.12077732284986172,
+      "peak_cell_density_persons_per_m2": 2.0
+    },
+    {
+      "frame_id": 188,
+      "t_sec": 6.266666666666667,
+      "in_quad": 1,
+      "density_persons_per_m2": 0.02415546456997234,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 189,
+      "t_sec": 6.3,
+      "in_quad": 0,
+      "density_persons_per_m2": 0.0,
+      "peak_cell_density_persons_per_m2": 0.0
+    },
+    {
+      "frame_id": 190,
+      "t_sec": 6.333333333333333,
+      "in_quad": 0,
+      "density_persons_per_m2": 0.0,
+      "peak_cell_density_persons_per_m2": 0.0
+    },
+    {
+      "frame_id": 191,
+      "t_sec": 6.366666666666666,
+      "in_quad": 3,
+      "density_persons_per_m2": 0.07246639370991703,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 192,
+      "t_sec": 6.4,
+      "in_quad": 2,
+      "density_persons_per_m2": 0.04831092913994468,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 193,
+      "t_sec": 6.433333333333334,
+      "in_quad": 3,
+      "density_persons_per_m2": 0.07246639370991703,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 194,
+      "t_sec": 6.466666666666667,
+      "in_quad": 2,
+      "density_persons_per_m2": 0.04831092913994468,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 195,
+      "t_sec": 6.5,
+      "in_quad": 4,
+      "density_persons_per_m2": 0.09662185827988937,
+      "peak_cell_density_persons_per_m2": 2.0
+    },
+    {
+      "frame_id": 196,
+      "t_sec": 6.533333333333333,
+      "in_quad": 3,
+      "density_persons_per_m2": 0.07246639370991703,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 197,
+      "t_sec": 6.566666666666666,
+      "in_quad": 2,
+      "density_persons_per_m2": 0.04831092913994468,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 198,
+      "t_sec": 6.6,
+      "in_quad": 4,
+      "density_persons_per_m2": 0.09662185827988937,
+      "peak_cell_density_persons_per_m2": 2.0
+    },
+    {
+      "frame_id": 199,
+      "t_sec": 6.633333333333334,
+      "in_quad": 3,
+      "density_persons_per_m2": 0.07246639370991703,
+      "peak_cell_density_persons_per_m2": 2.0
+    },
+    {
+      "frame_id": 200,
+      "t_sec": 6.666666666666667,
+      "in_quad": 3,
+      "density_persons_per_m2": 0.07246639370991703,
+      "peak_cell_density_persons_per_m2": 2.0
+    },
+    {
+      "frame_id": 201,
+      "t_sec": 6.7,
+      "in_quad": 3,
+      "density_persons_per_m2": 0.07246639370991703,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 202,
+      "t_sec": 6.733333333333333,
+      "in_quad": 3,
+      "density_persons_per_m2": 0.07246639370991703,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 203,
+      "t_sec": 6.766666666666667,
+      "in_quad": 2,
+      "density_persons_per_m2": 0.04831092913994468,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 204,
+      "t_sec": 6.8,
+      "in_quad": 2,
+      "density_persons_per_m2": 0.04831092913994468,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 205,
+      "t_sec": 6.833333333333333,
+      "in_quad": 1,
+      "density_persons_per_m2": 0.02415546456997234,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 206,
+      "t_sec": 6.866666666666666,
+      "in_quad": 4,
+      "density_persons_per_m2": 0.09662185827988937,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 207,
+      "t_sec": 6.9,
+      "in_quad": 4,
+      "density_persons_per_m2": 0.09662185827988937,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 208,
+      "t_sec": 6.933333333333334,
+      "in_quad": 4,
+      "density_persons_per_m2": 0.09662185827988937,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 209,
+      "t_sec": 6.966666666666667,
+      "in_quad": 4,
+      "density_persons_per_m2": 0.09662185827988937,
+      "peak_cell_density_persons_per_m2": 2.0
+    },
+    {
+      "frame_id": 210,
+      "t_sec": 7.0,
+      "in_quad": 2,
+      "density_persons_per_m2": 0.04831092913994468,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 211,
+      "t_sec": 7.033333333333333,
+      "in_quad": 3,
+      "density_persons_per_m2": 0.07246639370991703,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 212,
+      "t_sec": 7.066666666666666,
+      "in_quad": 4,
+      "density_persons_per_m2": 0.09662185827988937,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 213,
+      "t_sec": 7.1,
+      "in_quad": 5,
+      "density_persons_per_m2": 0.12077732284986172,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 214,
+      "t_sec": 7.133333333333334,
+      "in_quad": 6,
+      "density_persons_per_m2": 0.14493278741983406,
+      "peak_cell_density_persons_per_m2": 2.0
+    },
+    {
+      "frame_id": 215,
+      "t_sec": 7.166666666666667,
+      "in_quad": 5,
+      "density_persons_per_m2": 0.12077732284986172,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 216,
+      "t_sec": 7.2,
+      "in_quad": 3,
+      "density_persons_per_m2": 0.07246639370991703,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 217,
+      "t_sec": 7.233333333333333,
+      "in_quad": 4,
+      "density_persons_per_m2": 0.09662185827988937,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 218,
+      "t_sec": 7.266666666666667,
+      "in_quad": 4,
+      "density_persons_per_m2": 0.09662185827988937,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 219,
+      "t_sec": 7.3,
+      "in_quad": 7,
+      "density_persons_per_m2": 0.1690882519898064,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 220,
+      "t_sec": 7.333333333333333,
+      "in_quad": 2,
+      "density_persons_per_m2": 0.04831092913994468,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 221,
+      "t_sec": 7.366666666666666,
+      "in_quad": 3,
+      "density_persons_per_m2": 0.07246639370991703,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 222,
+      "t_sec": 7.4,
+      "in_quad": 3,
+      "density_persons_per_m2": 0.07246639370991703,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 223,
+      "t_sec": 7.433333333333334,
+      "in_quad": 5,
+      "density_persons_per_m2": 0.12077732284986172,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 224,
+      "t_sec": 7.466666666666667,
+      "in_quad": 3,
+      "density_persons_per_m2": 0.07246639370991703,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 225,
+      "t_sec": 7.5,
+      "in_quad": 4,
+      "density_persons_per_m2": 0.09662185827988937,
+      "peak_cell_density_persons_per_m2": 2.0
+    },
+    {
+      "frame_id": 226,
+      "t_sec": 7.533333333333333,
+      "in_quad": 4,
+      "density_persons_per_m2": 0.09662185827988937,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 227,
+      "t_sec": 7.566666666666666,
+      "in_quad": 2,
+      "density_persons_per_m2": 0.04831092913994468,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 228,
+      "t_sec": 7.6,
+      "in_quad": 3,
+      "density_persons_per_m2": 0.07246639370991703,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 229,
+      "t_sec": 7.633333333333334,
+      "in_quad": 4,
+      "density_persons_per_m2": 0.09662185827988937,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 230,
+      "t_sec": 7.666666666666667,
+      "in_quad": 4,
+      "density_persons_per_m2": 0.09662185827988937,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 231,
+      "t_sec": 7.7,
+      "in_quad": 7,
+      "density_persons_per_m2": 0.1690882519898064,
+      "peak_cell_density_persons_per_m2": 2.0
+    },
+    {
+      "frame_id": 232,
+      "t_sec": 7.733333333333333,
+      "in_quad": 2,
+      "density_persons_per_m2": 0.04831092913994468,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 233,
+      "t_sec": 7.766666666666667,
+      "in_quad": 6,
+      "density_persons_per_m2": 0.14493278741983406,
+      "peak_cell_density_persons_per_m2": 2.0
+    },
+    {
+      "frame_id": 234,
+      "t_sec": 7.8,
+      "in_quad": 8,
+      "density_persons_per_m2": 0.19324371655977873,
+      "peak_cell_density_persons_per_m2": 2.0
+    },
+    {
+      "frame_id": 235,
+      "t_sec": 7.833333333333333,
+      "in_quad": 7,
+      "density_persons_per_m2": 0.1690882519898064,
+      "peak_cell_density_persons_per_m2": 2.0
+    },
+    {
+      "frame_id": 236,
+      "t_sec": 7.866666666666666,
+      "in_quad": 7,
+      "density_persons_per_m2": 0.1690882519898064,
+      "peak_cell_density_persons_per_m2": 2.0
+    },
+    {
+      "frame_id": 237,
+      "t_sec": 7.9,
+      "in_quad": 8,
+      "density_persons_per_m2": 0.19324371655977873,
+      "peak_cell_density_persons_per_m2": 3.0
+    },
+    {
+      "frame_id": 238,
+      "t_sec": 7.933333333333334,
+      "in_quad": 10,
+      "density_persons_per_m2": 0.24155464569972343,
+      "peak_cell_density_persons_per_m2": 2.0
+    },
+    {
+      "frame_id": 239,
+      "t_sec": 7.966666666666667,
+      "in_quad": 9,
+      "density_persons_per_m2": 0.2173991811297511,
+      "peak_cell_density_persons_per_m2": 2.0
+    },
+    {
+      "frame_id": 240,
+      "t_sec": 8.0,
+      "in_quad": 6,
+      "density_persons_per_m2": 0.14493278741983406,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 241,
+      "t_sec": 8.033333333333333,
+      "in_quad": 3,
+      "density_persons_per_m2": 0.07246639370991703,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 242,
+      "t_sec": 8.066666666666666,
+      "in_quad": 4,
+      "density_persons_per_m2": 0.09662185827988937,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 243,
+      "t_sec": 8.1,
+      "in_quad": 4,
+      "density_persons_per_m2": 0.09662185827988937,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 244,
+      "t_sec": 8.133333333333333,
+      "in_quad": 8,
+      "density_persons_per_m2": 0.19324371655977873,
+      "peak_cell_density_persons_per_m2": 2.0
+    },
+    {
+      "frame_id": 245,
+      "t_sec": 8.166666666666666,
+      "in_quad": 9,
+      "density_persons_per_m2": 0.2173991811297511,
+      "peak_cell_density_persons_per_m2": 2.0
+    },
+    {
+      "frame_id": 246,
+      "t_sec": 8.2,
+      "in_quad": 7,
+      "density_persons_per_m2": 0.1690882519898064,
+      "peak_cell_density_persons_per_m2": 3.0
+    },
+    {
+      "frame_id": 247,
+      "t_sec": 8.233333333333333,
+      "in_quad": 5,
+      "density_persons_per_m2": 0.12077732284986172,
+      "peak_cell_density_persons_per_m2": 3.0
+    },
+    {
+      "frame_id": 248,
+      "t_sec": 8.266666666666667,
+      "in_quad": 4,
+      "density_persons_per_m2": 0.09662185827988937,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 249,
+      "t_sec": 8.3,
+      "in_quad": 4,
+      "density_persons_per_m2": 0.09662185827988937,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 250,
+      "t_sec": 8.333333333333334,
+      "in_quad": 3,
+      "density_persons_per_m2": 0.07246639370991703,
+      "peak_cell_density_persons_per_m2": 2.0
+    },
+    {
+      "frame_id": 251,
+      "t_sec": 8.366666666666667,
+      "in_quad": 2,
+      "density_persons_per_m2": 0.04831092913994468,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 252,
+      "t_sec": 8.4,
+      "in_quad": 9,
+      "density_persons_per_m2": 0.2173991811297511,
+      "peak_cell_density_persons_per_m2": 2.0
+    },
+    {
+      "frame_id": 253,
+      "t_sec": 8.433333333333334,
+      "in_quad": 10,
+      "density_persons_per_m2": 0.24155464569972343,
+      "peak_cell_density_persons_per_m2": 2.0
+    },
+    {
+      "frame_id": 254,
+      "t_sec": 8.466666666666667,
+      "in_quad": 7,
+      "density_persons_per_m2": 0.1690882519898064,
+      "peak_cell_density_persons_per_m2": 2.0
+    },
+    {
+      "frame_id": 255,
+      "t_sec": 8.5,
+      "in_quad": 8,
+      "density_persons_per_m2": 0.19324371655977873,
+      "peak_cell_density_persons_per_m2": 2.0
+    },
+    {
+      "frame_id": 256,
+      "t_sec": 8.533333333333333,
+      "in_quad": 8,
+      "density_persons_per_m2": 0.19324371655977873,
+      "peak_cell_density_persons_per_m2": 2.0
+    },
+    {
+      "frame_id": 257,
+      "t_sec": 8.566666666666666,
+      "in_quad": 7,
+      "density_persons_per_m2": 0.1690882519898064,
+      "peak_cell_density_persons_per_m2": 2.0
+    },
+    {
+      "frame_id": 258,
+      "t_sec": 8.6,
+      "in_quad": 4,
+      "density_persons_per_m2": 0.09662185827988937,
+      "peak_cell_density_persons_per_m2": 2.0
+    },
+    {
+      "frame_id": 259,
+      "t_sec": 8.633333333333333,
+      "in_quad": 5,
+      "density_persons_per_m2": 0.12077732284986172,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 260,
+      "t_sec": 8.666666666666666,
+      "in_quad": 4,
+      "density_persons_per_m2": 0.09662185827988937,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 261,
+      "t_sec": 8.7,
+      "in_quad": 4,
+      "density_persons_per_m2": 0.09662185827988937,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 262,
+      "t_sec": 8.733333333333333,
+      "in_quad": 6,
+      "density_persons_per_m2": 0.14493278741983406,
+      "peak_cell_density_persons_per_m2": 2.0
+    },
+    {
+      "frame_id": 263,
+      "t_sec": 8.766666666666667,
+      "in_quad": 5,
+      "density_persons_per_m2": 0.12077732284986172,
+      "peak_cell_density_persons_per_m2": 2.0
+    },
+    {
+      "frame_id": 264,
+      "t_sec": 8.8,
+      "in_quad": 5,
+      "density_persons_per_m2": 0.12077732284986172,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 265,
+      "t_sec": 8.833333333333334,
+      "in_quad": 8,
+      "density_persons_per_m2": 0.19324371655977873,
+      "peak_cell_density_persons_per_m2": 2.0
+    },
+    {
+      "frame_id": 266,
+      "t_sec": 8.866666666666667,
+      "in_quad": 8,
+      "density_persons_per_m2": 0.19324371655977873,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 267,
+      "t_sec": 8.9,
+      "in_quad": 5,
+      "density_persons_per_m2": 0.12077732284986172,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 268,
+      "t_sec": 8.933333333333334,
+      "in_quad": 5,
+      "density_persons_per_m2": 0.12077732284986172,
+      "peak_cell_density_persons_per_m2": 2.0
+    },
+    {
+      "frame_id": 269,
+      "t_sec": 8.966666666666667,
+      "in_quad": 7,
+      "density_persons_per_m2": 0.1690882519898064,
+      "peak_cell_density_persons_per_m2": 2.0
+    },
+    {
+      "frame_id": 270,
+      "t_sec": 9.0,
+      "in_quad": 5,
+      "density_persons_per_m2": 0.12077732284986172,
+      "peak_cell_density_persons_per_m2": 2.0
+    },
+    {
+      "frame_id": 271,
+      "t_sec": 9.033333333333333,
+      "in_quad": 7,
+      "density_persons_per_m2": 0.1690882519898064,
+      "peak_cell_density_persons_per_m2": 2.0
+    },
+    {
+      "frame_id": 272,
+      "t_sec": 9.066666666666666,
+      "in_quad": 6,
+      "density_persons_per_m2": 0.14493278741983406,
+      "peak_cell_density_persons_per_m2": 2.0
+    },
+    {
+      "frame_id": 273,
+      "t_sec": 9.1,
+      "in_quad": 8,
+      "density_persons_per_m2": 0.19324371655977873,
+      "peak_cell_density_persons_per_m2": 2.0
+    },
+    {
+      "frame_id": 274,
+      "t_sec": 9.133333333333333,
+      "in_quad": 10,
+      "density_persons_per_m2": 0.24155464569972343,
+      "peak_cell_density_persons_per_m2": 2.0
+    },
+    {
+      "frame_id": 275,
+      "t_sec": 9.166666666666666,
+      "in_quad": 7,
+      "density_persons_per_m2": 0.1690882519898064,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 276,
+      "t_sec": 9.2,
+      "in_quad": 6,
+      "density_persons_per_m2": 0.14493278741983406,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 277,
+      "t_sec": 9.233333333333333,
+      "in_quad": 3,
+      "density_persons_per_m2": 0.07246639370991703,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 278,
+      "t_sec": 9.266666666666667,
+      "in_quad": 6,
+      "density_persons_per_m2": 0.14493278741983406,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 279,
+      "t_sec": 9.3,
+      "in_quad": 6,
+      "density_persons_per_m2": 0.14493278741983406,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 280,
+      "t_sec": 9.333333333333334,
+      "in_quad": 5,
+      "density_persons_per_m2": 0.12077732284986172,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 281,
+      "t_sec": 9.366666666666667,
+      "in_quad": 5,
+      "density_persons_per_m2": 0.12077732284986172,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 282,
+      "t_sec": 9.4,
+      "in_quad": 5,
+      "density_persons_per_m2": 0.12077732284986172,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 283,
+      "t_sec": 9.433333333333334,
+      "in_quad": 4,
+      "density_persons_per_m2": 0.09662185827988937,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 284,
+      "t_sec": 9.466666666666667,
+      "in_quad": 6,
+      "density_persons_per_m2": 0.14493278741983406,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 285,
+      "t_sec": 9.5,
+      "in_quad": 9,
+      "density_persons_per_m2": 0.2173991811297511,
+      "peak_cell_density_persons_per_m2": 2.0
+    },
+    {
+      "frame_id": 286,
+      "t_sec": 9.533333333333333,
+      "in_quad": 9,
+      "density_persons_per_m2": 0.2173991811297511,
+      "peak_cell_density_persons_per_m2": 2.0
+    },
+    {
+      "frame_id": 287,
+      "t_sec": 9.566666666666666,
+      "in_quad": 9,
+      "density_persons_per_m2": 0.2173991811297511,
+      "peak_cell_density_persons_per_m2": 2.0
+    },
+    {
+      "frame_id": 288,
+      "t_sec": 9.6,
+      "in_quad": 6,
+      "density_persons_per_m2": 0.14493278741983406,
+      "peak_cell_density_persons_per_m2": 2.0
+    },
+    {
+      "frame_id": 289,
+      "t_sec": 9.633333333333333,
+      "in_quad": 7,
+      "density_persons_per_m2": 0.1690882519898064,
+      "peak_cell_density_persons_per_m2": 2.0
+    },
+    {
+      "frame_id": 290,
+      "t_sec": 9.666666666666666,
+      "in_quad": 9,
+      "density_persons_per_m2": 0.2173991811297511,
+      "peak_cell_density_persons_per_m2": 2.0
+    },
+    {
+      "frame_id": 291,
+      "t_sec": 9.7,
+      "in_quad": 9,
+      "density_persons_per_m2": 0.2173991811297511,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 292,
+      "t_sec": 9.733333333333333,
+      "in_quad": 10,
+      "density_persons_per_m2": 0.24155464569972343,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 293,
+      "t_sec": 9.766666666666667,
+      "in_quad": 8,
+      "density_persons_per_m2": 0.19324371655977873,
+      "peak_cell_density_persons_per_m2": 2.0
+    },
+    {
+      "frame_id": 294,
+      "t_sec": 9.8,
+      "in_quad": 6,
+      "density_persons_per_m2": 0.14493278741983406,
+      "peak_cell_density_persons_per_m2": 2.0
+    },
+    {
+      "frame_id": 295,
+      "t_sec": 9.833333333333334,
+      "in_quad": 5,
+      "density_persons_per_m2": 0.12077732284986172,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 296,
+      "t_sec": 9.866666666666667,
+      "in_quad": 6,
+      "density_persons_per_m2": 0.14493278741983406,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 297,
+      "t_sec": 9.9,
+      "in_quad": 6,
+      "density_persons_per_m2": 0.14493278741983406,
+      "peak_cell_density_persons_per_m2": 2.0
+    },
+    {
+      "frame_id": 298,
+      "t_sec": 9.933333333333334,
+      "in_quad": 8,
+      "density_persons_per_m2": 0.19324371655977873,
+      "peak_cell_density_persons_per_m2": 2.0
+    },
+    {
+      "frame_id": 299,
+      "t_sec": 9.966666666666667,
+      "in_quad": 8,
+      "density_persons_per_m2": 0.19324371655977873,
+      "peak_cell_density_persons_per_m2": 2.0
+    },
+    {
+      "frame_id": 300,
+      "t_sec": 10.0,
+      "in_quad": 6,
+      "density_persons_per_m2": 0.14493278741983406,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 301,
+      "t_sec": 10.033333333333333,
+      "in_quad": 4,
+      "density_persons_per_m2": 0.09662185827988937,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 302,
+      "t_sec": 10.066666666666666,
+      "in_quad": 4,
+      "density_persons_per_m2": 0.09662185827988937,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 303,
+      "t_sec": 10.1,
+      "in_quad": 5,
+      "density_persons_per_m2": 0.12077732284986172,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 304,
+      "t_sec": 10.133333333333333,
+      "in_quad": 4,
+      "density_persons_per_m2": 0.09662185827988937,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 305,
+      "t_sec": 10.166666666666666,
+      "in_quad": 1,
+      "density_persons_per_m2": 0.02415546456997234,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 306,
+      "t_sec": 10.2,
+      "in_quad": 1,
+      "density_persons_per_m2": 0.02415546456997234,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 307,
+      "t_sec": 10.233333333333333,
+      "in_quad": 1,
+      "density_persons_per_m2": 0.02415546456997234,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 308,
+      "t_sec": 10.266666666666667,
+      "in_quad": 3,
+      "density_persons_per_m2": 0.07246639370991703,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 309,
+      "t_sec": 10.3,
+      "in_quad": 5,
+      "density_persons_per_m2": 0.12077732284986172,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 310,
+      "t_sec": 10.333333333333334,
+      "in_quad": 5,
+      "density_persons_per_m2": 0.12077732284986172,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 311,
+      "t_sec": 10.366666666666667,
+      "in_quad": 4,
+      "density_persons_per_m2": 0.09662185827988937,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 312,
+      "t_sec": 10.4,
+      "in_quad": 4,
+      "density_persons_per_m2": 0.09662185827988937,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 313,
+      "t_sec": 10.433333333333334,
+      "in_quad": 5,
+      "density_persons_per_m2": 0.12077732284986172,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 314,
+      "t_sec": 10.466666666666667,
+      "in_quad": 5,
+      "density_persons_per_m2": 0.12077732284986172,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 315,
+      "t_sec": 10.5,
+      "in_quad": 3,
+      "density_persons_per_m2": 0.07246639370991703,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 316,
+      "t_sec": 10.533333333333333,
+      "in_quad": 5,
+      "density_persons_per_m2": 0.12077732284986172,
+      "peak_cell_density_persons_per_m2": 2.0
+    },
+    {
+      "frame_id": 317,
+      "t_sec": 10.566666666666666,
+      "in_quad": 2,
+      "density_persons_per_m2": 0.04831092913994468,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 318,
+      "t_sec": 10.6,
+      "in_quad": 3,
+      "density_persons_per_m2": 0.07246639370991703,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 319,
+      "t_sec": 10.633333333333333,
+      "in_quad": 4,
+      "density_persons_per_m2": 0.09662185827988937,
+      "peak_cell_density_persons_per_m2": 2.0
+    },
+    {
+      "frame_id": 320,
+      "t_sec": 10.666666666666666,
+      "in_quad": 6,
+      "density_persons_per_m2": 0.14493278741983406,
+      "peak_cell_density_persons_per_m2": 2.0
+    },
+    {
+      "frame_id": 321,
+      "t_sec": 10.7,
+      "in_quad": 6,
+      "density_persons_per_m2": 0.14493278741983406,
+      "peak_cell_density_persons_per_m2": 2.0
+    },
+    {
+      "frame_id": 322,
+      "t_sec": 10.733333333333333,
+      "in_quad": 4,
+      "density_persons_per_m2": 0.09662185827988937,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 323,
+      "t_sec": 10.766666666666667,
+      "in_quad": 6,
+      "density_persons_per_m2": 0.14493278741983406,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 324,
+      "t_sec": 10.8,
+      "in_quad": 3,
+      "density_persons_per_m2": 0.07246639370991703,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 325,
+      "t_sec": 10.833333333333334,
+      "in_quad": 5,
+      "density_persons_per_m2": 0.12077732284986172,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 326,
+      "t_sec": 10.866666666666667,
+      "in_quad": 6,
+      "density_persons_per_m2": 0.14493278741983406,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 327,
+      "t_sec": 10.9,
+      "in_quad": 5,
+      "density_persons_per_m2": 0.12077732284986172,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 328,
+      "t_sec": 10.933333333333334,
+      "in_quad": 3,
+      "density_persons_per_m2": 0.07246639370991703,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 329,
+      "t_sec": 10.966666666666667,
+      "in_quad": 3,
+      "density_persons_per_m2": 0.07246639370991703,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 330,
+      "t_sec": 11.0,
+      "in_quad": 3,
+      "density_persons_per_m2": 0.07246639370991703,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 331,
+      "t_sec": 11.033333333333333,
+      "in_quad": 2,
+      "density_persons_per_m2": 0.04831092913994468,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 332,
+      "t_sec": 11.066666666666666,
+      "in_quad": 4,
+      "density_persons_per_m2": 0.09662185827988937,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 333,
+      "t_sec": 11.1,
+      "in_quad": 4,
+      "density_persons_per_m2": 0.09662185827988937,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 334,
+      "t_sec": 11.133333333333333,
+      "in_quad": 2,
+      "density_persons_per_m2": 0.04831092913994468,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 335,
+      "t_sec": 11.166666666666666,
+      "in_quad": 5,
+      "density_persons_per_m2": 0.12077732284986172,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 336,
+      "t_sec": 11.2,
+      "in_quad": 2,
+      "density_persons_per_m2": 0.04831092913994468,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 337,
+      "t_sec": 11.233333333333333,
+      "in_quad": 4,
+      "density_persons_per_m2": 0.09662185827988937,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 338,
+      "t_sec": 11.266666666666667,
+      "in_quad": 3,
+      "density_persons_per_m2": 0.07246639370991703,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 339,
+      "t_sec": 11.3,
+      "in_quad": 3,
+      "density_persons_per_m2": 0.07246639370991703,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 340,
+      "t_sec": 11.333333333333334,
+      "in_quad": 4,
+      "density_persons_per_m2": 0.09662185827988937,
+      "peak_cell_density_persons_per_m2": 2.0
+    },
+    {
+      "frame_id": 341,
+      "t_sec": 11.366666666666667,
+      "in_quad": 5,
+      "density_persons_per_m2": 0.12077732284986172,
+      "peak_cell_density_persons_per_m2": 2.0
+    },
+    {
+      "frame_id": 342,
+      "t_sec": 11.4,
+      "in_quad": 6,
+      "density_persons_per_m2": 0.14493278741983406,
+      "peak_cell_density_persons_per_m2": 2.0
+    },
+    {
+      "frame_id": 343,
+      "t_sec": 11.433333333333334,
+      "in_quad": 5,
+      "density_persons_per_m2": 0.12077732284986172,
+      "peak_cell_density_persons_per_m2": 2.0
+    },
+    {
+      "frame_id": 344,
+      "t_sec": 11.466666666666667,
+      "in_quad": 4,
+      "density_persons_per_m2": 0.09662185827988937,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 345,
+      "t_sec": 11.5,
+      "in_quad": 1,
+      "density_persons_per_m2": 0.02415546456997234,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 346,
+      "t_sec": 11.533333333333333,
+      "in_quad": 2,
+      "density_persons_per_m2": 0.04831092913994468,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 347,
+      "t_sec": 11.566666666666666,
+      "in_quad": 2,
+      "density_persons_per_m2": 0.04831092913994468,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 348,
+      "t_sec": 11.6,
+      "in_quad": 1,
+      "density_persons_per_m2": 0.02415546456997234,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 349,
+      "t_sec": 11.633333333333333,
+      "in_quad": 0,
+      "density_persons_per_m2": 0.0,
+      "peak_cell_density_persons_per_m2": 0.0
+    },
+    {
+      "frame_id": 350,
+      "t_sec": 11.666666666666666,
+      "in_quad": 0,
+      "density_persons_per_m2": 0.0,
+      "peak_cell_density_persons_per_m2": 0.0
+    },
+    {
+      "frame_id": 351,
+      "t_sec": 11.7,
+      "in_quad": 2,
+      "density_persons_per_m2": 0.04831092913994468,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 352,
+      "t_sec": 11.733333333333333,
+      "in_quad": 2,
+      "density_persons_per_m2": 0.04831092913994468,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 353,
+      "t_sec": 11.766666666666667,
+      "in_quad": 2,
+      "density_persons_per_m2": 0.04831092913994468,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 354,
+      "t_sec": 11.8,
+      "in_quad": 0,
+      "density_persons_per_m2": 0.0,
+      "peak_cell_density_persons_per_m2": 0.0
+    },
+    {
+      "frame_id": 355,
+      "t_sec": 11.833333333333334,
+      "in_quad": 1,
+      "density_persons_per_m2": 0.02415546456997234,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 356,
+      "t_sec": 11.866666666666667,
+      "in_quad": 1,
+      "density_persons_per_m2": 0.02415546456997234,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 357,
+      "t_sec": 11.9,
+      "in_quad": 3,
+      "density_persons_per_m2": 0.07246639370991703,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 358,
+      "t_sec": 11.933333333333334,
+      "in_quad": 0,
+      "density_persons_per_m2": 0.0,
+      "peak_cell_density_persons_per_m2": 0.0
+    },
+    {
+      "frame_id": 359,
+      "t_sec": 11.966666666666667,
+      "in_quad": 1,
+      "density_persons_per_m2": 0.02415546456997234,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 360,
+      "t_sec": 12.0,
+      "in_quad": 3,
+      "density_persons_per_m2": 0.07246639370991703,
+      "peak_cell_density_persons_per_m2": 2.0
+    },
+    {
+      "frame_id": 361,
+      "t_sec": 12.033333333333333,
+      "in_quad": 1,
+      "density_persons_per_m2": 0.02415546456997234,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 362,
+      "t_sec": 12.066666666666666,
+      "in_quad": 2,
+      "density_persons_per_m2": 0.04831092913994468,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 363,
+      "t_sec": 12.1,
+      "in_quad": 3,
+      "density_persons_per_m2": 0.07246639370991703,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 364,
+      "t_sec": 12.133333333333333,
+      "in_quad": 2,
+      "density_persons_per_m2": 0.04831092913994468,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 365,
+      "t_sec": 12.166666666666666,
+      "in_quad": 4,
+      "density_persons_per_m2": 0.09662185827988937,
+      "peak_cell_density_persons_per_m2": 2.0
+    },
+    {
+      "frame_id": 366,
+      "t_sec": 12.2,
+      "in_quad": 3,
+      "density_persons_per_m2": 0.07246639370991703,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 367,
+      "t_sec": 12.233333333333333,
+      "in_quad": 2,
+      "density_persons_per_m2": 0.04831092913994468,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 368,
+      "t_sec": 12.266666666666667,
+      "in_quad": 4,
+      "density_persons_per_m2": 0.09662185827988937,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 369,
+      "t_sec": 12.3,
+      "in_quad": 5,
+      "density_persons_per_m2": 0.12077732284986172,
+      "peak_cell_density_persons_per_m2": 2.0
+    },
+    {
+      "frame_id": 370,
+      "t_sec": 12.333333333333334,
+      "in_quad": 5,
+      "density_persons_per_m2": 0.12077732284986172,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 371,
+      "t_sec": 12.366666666666667,
+      "in_quad": 0,
+      "density_persons_per_m2": 0.0,
+      "peak_cell_density_persons_per_m2": 0.0
+    },
+    {
+      "frame_id": 372,
+      "t_sec": 12.4,
+      "in_quad": 2,
+      "density_persons_per_m2": 0.04831092913994468,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 373,
+      "t_sec": 12.433333333333334,
+      "in_quad": 5,
+      "density_persons_per_m2": 0.12077732284986172,
+      "peak_cell_density_persons_per_m2": 2.0
+    },
+    {
+      "frame_id": 374,
+      "t_sec": 12.466666666666667,
+      "in_quad": 2,
+      "density_persons_per_m2": 0.04831092913994468,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 375,
+      "t_sec": 12.5,
+      "in_quad": 3,
+      "density_persons_per_m2": 0.07246639370991703,
+      "peak_cell_density_persons_per_m2": 2.0
+    },
+    {
+      "frame_id": 376,
+      "t_sec": 12.533333333333333,
+      "in_quad": 2,
+      "density_persons_per_m2": 0.04831092913994468,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 377,
+      "t_sec": 12.566666666666666,
+      "in_quad": 0,
+      "density_persons_per_m2": 0.0,
+      "peak_cell_density_persons_per_m2": 0.0
+    },
+    {
+      "frame_id": 378,
+      "t_sec": 12.6,
+      "in_quad": 1,
+      "density_persons_per_m2": 0.02415546456997234,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 379,
+      "t_sec": 12.633333333333333,
+      "in_quad": 0,
+      "density_persons_per_m2": 0.0,
+      "peak_cell_density_persons_per_m2": 0.0
+    },
+    {
+      "frame_id": 380,
+      "t_sec": 12.666666666666666,
+      "in_quad": 1,
+      "density_persons_per_m2": 0.02415546456997234,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 381,
+      "t_sec": 12.7,
+      "in_quad": 2,
+      "density_persons_per_m2": 0.04831092913994468,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 382,
+      "t_sec": 12.733333333333333,
+      "in_quad": 2,
+      "density_persons_per_m2": 0.04831092913994468,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 383,
+      "t_sec": 12.766666666666667,
+      "in_quad": 5,
+      "density_persons_per_m2": 0.12077732284986172,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 384,
+      "t_sec": 12.8,
+      "in_quad": 3,
+      "density_persons_per_m2": 0.07246639370991703,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 385,
+      "t_sec": 12.833333333333334,
+      "in_quad": 2,
+      "density_persons_per_m2": 0.04831092913994468,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 386,
+      "t_sec": 12.866666666666667,
+      "in_quad": 2,
+      "density_persons_per_m2": 0.04831092913994468,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 387,
+      "t_sec": 12.9,
+      "in_quad": 1,
+      "density_persons_per_m2": 0.02415546456997234,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 388,
+      "t_sec": 12.933333333333334,
+      "in_quad": 1,
+      "density_persons_per_m2": 0.02415546456997234,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 389,
+      "t_sec": 12.966666666666667,
+      "in_quad": 0,
+      "density_persons_per_m2": 0.0,
+      "peak_cell_density_persons_per_m2": 0.0
+    },
+    {
+      "frame_id": 390,
+      "t_sec": 13.0,
+      "in_quad": 3,
+      "density_persons_per_m2": 0.07246639370991703,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 391,
+      "t_sec": 13.033333333333333,
+      "in_quad": 3,
+      "density_persons_per_m2": 0.07246639370991703,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 392,
+      "t_sec": 13.066666666666666,
+      "in_quad": 0,
+      "density_persons_per_m2": 0.0,
+      "peak_cell_density_persons_per_m2": 0.0
+    },
+    {
+      "frame_id": 393,
+      "t_sec": 13.1,
+      "in_quad": 0,
+      "density_persons_per_m2": 0.0,
+      "peak_cell_density_persons_per_m2": 0.0
+    },
+    {
+      "frame_id": 394,
+      "t_sec": 13.133333333333333,
+      "in_quad": 0,
+      "density_persons_per_m2": 0.0,
+      "peak_cell_density_persons_per_m2": 0.0
+    },
+    {
+      "frame_id": 395,
+      "t_sec": 13.166666666666666,
+      "in_quad": 0,
+      "density_persons_per_m2": 0.0,
+      "peak_cell_density_persons_per_m2": 0.0
+    },
+    {
+      "frame_id": 396,
+      "t_sec": 13.2,
+      "in_quad": 1,
+      "density_persons_per_m2": 0.02415546456997234,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 397,
+      "t_sec": 13.233333333333333,
+      "in_quad": 0,
+      "density_persons_per_m2": 0.0,
+      "peak_cell_density_persons_per_m2": 0.0
+    },
+    {
+      "frame_id": 398,
+      "t_sec": 13.266666666666667,
+      "in_quad": 1,
+      "density_persons_per_m2": 0.02415546456997234,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 399,
+      "t_sec": 13.3,
+      "in_quad": 2,
+      "density_persons_per_m2": 0.04831092913994468,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 400,
+      "t_sec": 13.333333333333334,
+      "in_quad": 2,
+      "density_persons_per_m2": 0.04831092913994468,
+      "peak_cell_density_persons_per_m2": 2.0
+    },
+    {
+      "frame_id": 401,
+      "t_sec": 13.366666666666667,
+      "in_quad": 1,
+      "density_persons_per_m2": 0.02415546456997234,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 402,
+      "t_sec": 13.4,
+      "in_quad": 1,
+      "density_persons_per_m2": 0.02415546456997234,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 403,
+      "t_sec": 13.433333333333334,
+      "in_quad": 1,
+      "density_persons_per_m2": 0.02415546456997234,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 404,
+      "t_sec": 13.466666666666667,
+      "in_quad": 2,
+      "density_persons_per_m2": 0.04831092913994468,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 405,
+      "t_sec": 13.5,
+      "in_quad": 3,
+      "density_persons_per_m2": 0.07246639370991703,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 406,
+      "t_sec": 13.533333333333333,
+      "in_quad": 2,
+      "density_persons_per_m2": 0.04831092913994468,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 407,
+      "t_sec": 13.566666666666666,
+      "in_quad": 0,
+      "density_persons_per_m2": 0.0,
+      "peak_cell_density_persons_per_m2": 0.0
+    },
+    {
+      "frame_id": 408,
+      "t_sec": 13.6,
+      "in_quad": 4,
+      "density_persons_per_m2": 0.09662185827988937,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 409,
+      "t_sec": 13.633333333333333,
+      "in_quad": 3,
+      "density_persons_per_m2": 0.07246639370991703,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 410,
+      "t_sec": 13.666666666666666,
+      "in_quad": 6,
+      "density_persons_per_m2": 0.14493278741983406,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 411,
+      "t_sec": 13.7,
+      "in_quad": 8,
+      "density_persons_per_m2": 0.19324371655977873,
+      "peak_cell_density_persons_per_m2": 2.0
+    },
+    {
+      "frame_id": 412,
+      "t_sec": 13.733333333333333,
+      "in_quad": 4,
+      "density_persons_per_m2": 0.09662185827988937,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 413,
+      "t_sec": 13.766666666666667,
+      "in_quad": 2,
+      "density_persons_per_m2": 0.04831092913994468,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 414,
+      "t_sec": 13.8,
+      "in_quad": 3,
+      "density_persons_per_m2": 0.07246639370991703,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 415,
+      "t_sec": 13.833333333333334,
+      "in_quad": 2,
+      "density_persons_per_m2": 0.04831092913994468,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 416,
+      "t_sec": 13.866666666666667,
+      "in_quad": 2,
+      "density_persons_per_m2": 0.04831092913994468,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 417,
+      "t_sec": 13.9,
+      "in_quad": 0,
+      "density_persons_per_m2": 0.0,
+      "peak_cell_density_persons_per_m2": 0.0
+    },
+    {
+      "frame_id": 418,
+      "t_sec": 13.933333333333334,
+      "in_quad": 4,
+      "density_persons_per_m2": 0.09662185827988937,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 419,
+      "t_sec": 13.966666666666667,
+      "in_quad": 3,
+      "density_persons_per_m2": 0.07246639370991703,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 420,
+      "t_sec": 14.0,
+      "in_quad": 1,
+      "density_persons_per_m2": 0.02415546456997234,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 421,
+      "t_sec": 14.033333333333333,
+      "in_quad": 3,
+      "density_persons_per_m2": 0.07246639370991703,
+      "peak_cell_density_persons_per_m2": 2.0
+    },
+    {
+      "frame_id": 422,
+      "t_sec": 14.066666666666666,
+      "in_quad": 6,
+      "density_persons_per_m2": 0.14493278741983406,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 423,
+      "t_sec": 14.1,
+      "in_quad": 2,
+      "density_persons_per_m2": 0.04831092913994468,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 424,
+      "t_sec": 14.133333333333333,
+      "in_quad": 0,
+      "density_persons_per_m2": 0.0,
+      "peak_cell_density_persons_per_m2": 0.0
+    },
+    {
+      "frame_id": 425,
+      "t_sec": 14.166666666666666,
+      "in_quad": 0,
+      "density_persons_per_m2": 0.0,
+      "peak_cell_density_persons_per_m2": 0.0
+    },
+    {
+      "frame_id": 426,
+      "t_sec": 14.2,
+      "in_quad": 2,
+      "density_persons_per_m2": 0.04831092913994468,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 427,
+      "t_sec": 14.233333333333333,
+      "in_quad": 2,
+      "density_persons_per_m2": 0.04831092913994468,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 428,
+      "t_sec": 14.266666666666667,
+      "in_quad": 1,
+      "density_persons_per_m2": 0.02415546456997234,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 429,
+      "t_sec": 14.3,
+      "in_quad": 0,
+      "density_persons_per_m2": 0.0,
+      "peak_cell_density_persons_per_m2": 0.0
+    },
+    {
+      "frame_id": 430,
+      "t_sec": 14.333333333333334,
+      "in_quad": 3,
+      "density_persons_per_m2": 0.07246639370991703,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 431,
+      "t_sec": 14.366666666666667,
+      "in_quad": 3,
+      "density_persons_per_m2": 0.07246639370991703,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 432,
+      "t_sec": 14.4,
+      "in_quad": 2,
+      "density_persons_per_m2": 0.04831092913994468,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 433,
+      "t_sec": 14.433333333333334,
+      "in_quad": 5,
+      "density_persons_per_m2": 0.12077732284986172,
+      "peak_cell_density_persons_per_m2": 2.0
+    },
+    {
+      "frame_id": 434,
+      "t_sec": 14.466666666666667,
+      "in_quad": 4,
+      "density_persons_per_m2": 0.09662185827988937,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 435,
+      "t_sec": 14.5,
+      "in_quad": 4,
+      "density_persons_per_m2": 0.09662185827988937,
+      "peak_cell_density_persons_per_m2": 2.0
+    },
+    {
+      "frame_id": 436,
+      "t_sec": 14.533333333333333,
+      "in_quad": 4,
+      "density_persons_per_m2": 0.09662185827988937,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 437,
+      "t_sec": 14.566666666666666,
+      "in_quad": 3,
+      "density_persons_per_m2": 0.07246639370991703,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 438,
+      "t_sec": 14.6,
+      "in_quad": 2,
+      "density_persons_per_m2": 0.04831092913994468,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 439,
+      "t_sec": 14.633333333333333,
+      "in_quad": 2,
+      "density_persons_per_m2": 0.04831092913994468,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 440,
+      "t_sec": 14.666666666666666,
+      "in_quad": 4,
+      "density_persons_per_m2": 0.09662185827988937,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 441,
+      "t_sec": 14.7,
+      "in_quad": 1,
+      "density_persons_per_m2": 0.02415546456997234,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 442,
+      "t_sec": 14.733333333333333,
+      "in_quad": 2,
+      "density_persons_per_m2": 0.04831092913994468,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 443,
+      "t_sec": 14.766666666666667,
+      "in_quad": 1,
+      "density_persons_per_m2": 0.02415546456997234,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 444,
+      "t_sec": 14.8,
+      "in_quad": 0,
+      "density_persons_per_m2": 0.0,
+      "peak_cell_density_persons_per_m2": 0.0
+    },
+    {
+      "frame_id": 445,
+      "t_sec": 14.833333333333334,
+      "in_quad": 2,
+      "density_persons_per_m2": 0.04831092913994468,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 446,
+      "t_sec": 14.866666666666667,
+      "in_quad": 5,
+      "density_persons_per_m2": 0.12077732284986172,
+      "peak_cell_density_persons_per_m2": 2.0
+    },
+    {
+      "frame_id": 447,
+      "t_sec": 14.9,
+      "in_quad": 2,
+      "density_persons_per_m2": 0.04831092913994468,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 448,
+      "t_sec": 14.933333333333334,
+      "in_quad": 1,
+      "density_persons_per_m2": 0.02415546456997234,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 449,
+      "t_sec": 14.966666666666667,
+      "in_quad": 2,
+      "density_persons_per_m2": 0.04831092913994468,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 450,
+      "t_sec": 15.0,
+      "in_quad": 3,
+      "density_persons_per_m2": 0.07246639370991703,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 451,
+      "t_sec": 15.033333333333333,
+      "in_quad": 3,
+      "density_persons_per_m2": 0.07246639370991703,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 452,
+      "t_sec": 15.066666666666666,
+      "in_quad": 3,
+      "density_persons_per_m2": 0.07246639370991703,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 453,
+      "t_sec": 15.1,
+      "in_quad": 3,
+      "density_persons_per_m2": 0.07246639370991703,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 454,
+      "t_sec": 15.133333333333333,
+      "in_quad": 4,
+      "density_persons_per_m2": 0.09662185827988937,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 455,
+      "t_sec": 15.166666666666666,
+      "in_quad": 4,
+      "density_persons_per_m2": 0.09662185827988937,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 456,
+      "t_sec": 15.2,
+      "in_quad": 3,
+      "density_persons_per_m2": 0.07246639370991703,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 457,
+      "t_sec": 15.233333333333333,
+      "in_quad": 5,
+      "density_persons_per_m2": 0.12077732284986172,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 458,
+      "t_sec": 15.266666666666667,
+      "in_quad": 4,
+      "density_persons_per_m2": 0.09662185827988937,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 459,
+      "t_sec": 15.3,
+      "in_quad": 4,
+      "density_persons_per_m2": 0.09662185827988937,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 460,
+      "t_sec": 15.333333333333334,
+      "in_quad": 2,
+      "density_persons_per_m2": 0.04831092913994468,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 461,
+      "t_sec": 15.366666666666667,
+      "in_quad": 2,
+      "density_persons_per_m2": 0.04831092913994468,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 462,
+      "t_sec": 15.4,
+      "in_quad": 3,
+      "density_persons_per_m2": 0.07246639370991703,
+      "peak_cell_density_persons_per_m2": 2.0
+    },
+    {
+      "frame_id": 463,
+      "t_sec": 15.433333333333334,
+      "in_quad": 3,
+      "density_persons_per_m2": 0.07246639370991703,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 464,
+      "t_sec": 15.466666666666667,
+      "in_quad": 1,
+      "density_persons_per_m2": 0.02415546456997234,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 465,
+      "t_sec": 15.5,
+      "in_quad": 1,
+      "density_persons_per_m2": 0.02415546456997234,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 466,
+      "t_sec": 15.533333333333333,
+      "in_quad": 1,
+      "density_persons_per_m2": 0.02415546456997234,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 467,
+      "t_sec": 15.566666666666666,
+      "in_quad": 2,
+      "density_persons_per_m2": 0.04831092913994468,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 468,
+      "t_sec": 15.6,
+      "in_quad": 4,
+      "density_persons_per_m2": 0.09662185827988937,
+      "peak_cell_density_persons_per_m2": 2.0
+    },
+    {
+      "frame_id": 469,
+      "t_sec": 15.633333333333333,
+      "in_quad": 4,
+      "density_persons_per_m2": 0.09662185827988937,
+      "peak_cell_density_persons_per_m2": 2.0
+    },
+    {
+      "frame_id": 470,
+      "t_sec": 15.666666666666666,
+      "in_quad": 3,
+      "density_persons_per_m2": 0.07246639370991703,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 471,
+      "t_sec": 15.7,
+      "in_quad": 3,
+      "density_persons_per_m2": 0.07246639370991703,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 472,
+      "t_sec": 15.733333333333333,
+      "in_quad": 1,
+      "density_persons_per_m2": 0.02415546456997234,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 473,
+      "t_sec": 15.766666666666667,
+      "in_quad": 2,
+      "density_persons_per_m2": 0.04831092913994468,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 474,
+      "t_sec": 15.8,
+      "in_quad": 4,
+      "density_persons_per_m2": 0.09662185827988937,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 475,
+      "t_sec": 15.833333333333334,
+      "in_quad": 5,
+      "density_persons_per_m2": 0.12077732284986172,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 476,
+      "t_sec": 15.866666666666667,
+      "in_quad": 4,
+      "density_persons_per_m2": 0.09662185827988937,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 477,
+      "t_sec": 15.9,
+      "in_quad": 4,
+      "density_persons_per_m2": 0.09662185827988937,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 478,
+      "t_sec": 15.933333333333334,
+      "in_quad": 4,
+      "density_persons_per_m2": 0.09662185827988937,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 479,
+      "t_sec": 15.966666666666667,
+      "in_quad": 2,
+      "density_persons_per_m2": 0.04831092913994468,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 480,
+      "t_sec": 16.0,
+      "in_quad": 4,
+      "density_persons_per_m2": 0.09662185827988937,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 481,
+      "t_sec": 16.033333333333335,
+      "in_quad": 1,
+      "density_persons_per_m2": 0.02415546456997234,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 482,
+      "t_sec": 16.066666666666666,
+      "in_quad": 2,
+      "density_persons_per_m2": 0.04831092913994468,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 483,
+      "t_sec": 16.1,
+      "in_quad": 3,
+      "density_persons_per_m2": 0.07246639370991703,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 484,
+      "t_sec": 16.133333333333333,
+      "in_quad": 2,
+      "density_persons_per_m2": 0.04831092913994468,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 485,
+      "t_sec": 16.166666666666668,
+      "in_quad": 0,
+      "density_persons_per_m2": 0.0,
+      "peak_cell_density_persons_per_m2": 0.0
+    },
+    {
+      "frame_id": 486,
+      "t_sec": 16.2,
+      "in_quad": 3,
+      "density_persons_per_m2": 0.07246639370991703,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 487,
+      "t_sec": 16.233333333333334,
+      "in_quad": 1,
+      "density_persons_per_m2": 0.02415546456997234,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 488,
+      "t_sec": 16.266666666666666,
+      "in_quad": 3,
+      "density_persons_per_m2": 0.07246639370991703,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 489,
+      "t_sec": 16.3,
+      "in_quad": 5,
+      "density_persons_per_m2": 0.12077732284986172,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 490,
+      "t_sec": 16.333333333333332,
+      "in_quad": 4,
+      "density_persons_per_m2": 0.09662185827988937,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 491,
+      "t_sec": 16.366666666666667,
+      "in_quad": 2,
+      "density_persons_per_m2": 0.04831092913994468,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 492,
+      "t_sec": 16.4,
+      "in_quad": 4,
+      "density_persons_per_m2": 0.09662185827988937,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 493,
+      "t_sec": 16.433333333333334,
+      "in_quad": 5,
+      "density_persons_per_m2": 0.12077732284986172,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 494,
+      "t_sec": 16.466666666666665,
+      "in_quad": 4,
+      "density_persons_per_m2": 0.09662185827988937,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 495,
+      "t_sec": 16.5,
+      "in_quad": 3,
+      "density_persons_per_m2": 0.07246639370991703,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 496,
+      "t_sec": 16.533333333333335,
+      "in_quad": 5,
+      "density_persons_per_m2": 0.12077732284986172,
+      "peak_cell_density_persons_per_m2": 2.0
+    },
+    {
+      "frame_id": 497,
+      "t_sec": 16.566666666666666,
+      "in_quad": 5,
+      "density_persons_per_m2": 0.12077732284986172,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 498,
+      "t_sec": 16.6,
+      "in_quad": 3,
+      "density_persons_per_m2": 0.07246639370991703,
+      "peak_cell_density_persons_per_m2": 2.0
+    },
+    {
+      "frame_id": 499,
+      "t_sec": 16.633333333333333,
+      "in_quad": 5,
+      "density_persons_per_m2": 0.12077732284986172,
+      "peak_cell_density_persons_per_m2": 2.0
+    },
+    {
+      "frame_id": 500,
+      "t_sec": 16.666666666666668,
+      "in_quad": 2,
+      "density_persons_per_m2": 0.04831092913994468,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 501,
+      "t_sec": 16.7,
+      "in_quad": 1,
+      "density_persons_per_m2": 0.02415546456997234,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 502,
+      "t_sec": 16.733333333333334,
+      "in_quad": 1,
+      "density_persons_per_m2": 0.02415546456997234,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 503,
+      "t_sec": 16.766666666666666,
+      "in_quad": 0,
+      "density_persons_per_m2": 0.0,
+      "peak_cell_density_persons_per_m2": 0.0
+    },
+    {
+      "frame_id": 504,
+      "t_sec": 16.8,
+      "in_quad": 1,
+      "density_persons_per_m2": 0.02415546456997234,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 505,
+      "t_sec": 16.833333333333332,
+      "in_quad": 3,
+      "density_persons_per_m2": 0.07246639370991703,
+      "peak_cell_density_persons_per_m2": 2.0
+    },
+    {
+      "frame_id": 506,
+      "t_sec": 16.866666666666667,
+      "in_quad": 3,
+      "density_persons_per_m2": 0.07246639370991703,
+      "peak_cell_density_persons_per_m2": 2.0
+    },
+    {
+      "frame_id": 507,
+      "t_sec": 16.9,
+      "in_quad": 4,
+      "density_persons_per_m2": 0.09662185827988937,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 508,
+      "t_sec": 16.933333333333334,
+      "in_quad": 2,
+      "density_persons_per_m2": 0.04831092913994468,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 509,
+      "t_sec": 16.966666666666665,
+      "in_quad": 1,
+      "density_persons_per_m2": 0.02415546456997234,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 510,
+      "t_sec": 17.0,
+      "in_quad": 2,
+      "density_persons_per_m2": 0.04831092913994468,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 511,
+      "t_sec": 17.033333333333335,
+      "in_quad": 3,
+      "density_persons_per_m2": 0.07246639370991703,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 512,
+      "t_sec": 17.066666666666666,
+      "in_quad": 3,
+      "density_persons_per_m2": 0.07246639370991703,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 513,
+      "t_sec": 17.1,
+      "in_quad": 3,
+      "density_persons_per_m2": 0.07246639370991703,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 514,
+      "t_sec": 17.133333333333333,
+      "in_quad": 5,
+      "density_persons_per_m2": 0.12077732284986172,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 515,
+      "t_sec": 17.166666666666668,
+      "in_quad": 7,
+      "density_persons_per_m2": 0.1690882519898064,
+      "peak_cell_density_persons_per_m2": 2.0
+    },
+    {
+      "frame_id": 516,
+      "t_sec": 17.2,
+      "in_quad": 8,
+      "density_persons_per_m2": 0.19324371655977873,
+      "peak_cell_density_persons_per_m2": 2.0
+    },
+    {
+      "frame_id": 517,
+      "t_sec": 17.233333333333334,
+      "in_quad": 6,
+      "density_persons_per_m2": 0.14493278741983406,
+      "peak_cell_density_persons_per_m2": 2.0
+    },
+    {
+      "frame_id": 518,
+      "t_sec": 17.266666666666666,
+      "in_quad": 7,
+      "density_persons_per_m2": 0.1690882519898064,
+      "peak_cell_density_persons_per_m2": 3.0
+    },
+    {
+      "frame_id": 519,
+      "t_sec": 17.3,
+      "in_quad": 9,
+      "density_persons_per_m2": 0.2173991811297511,
+      "peak_cell_density_persons_per_m2": 3.0
+    },
+    {
+      "frame_id": 520,
+      "t_sec": 17.333333333333332,
+      "in_quad": 5,
+      "density_persons_per_m2": 0.12077732284986172,
+      "peak_cell_density_persons_per_m2": 3.0
+    },
+    {
+      "frame_id": 521,
+      "t_sec": 17.366666666666667,
+      "in_quad": 5,
+      "density_persons_per_m2": 0.12077732284986172,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 522,
+      "t_sec": 17.4,
+      "in_quad": 3,
+      "density_persons_per_m2": 0.07246639370991703,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 523,
+      "t_sec": 17.433333333333334,
+      "in_quad": 2,
+      "density_persons_per_m2": 0.04831092913994468,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 524,
+      "t_sec": 17.466666666666665,
+      "in_quad": 5,
+      "density_persons_per_m2": 0.12077732284986172,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 525,
+      "t_sec": 17.5,
+      "in_quad": 5,
+      "density_persons_per_m2": 0.12077732284986172,
+      "peak_cell_density_persons_per_m2": 2.0
+    },
+    {
+      "frame_id": 526,
+      "t_sec": 17.533333333333335,
+      "in_quad": 3,
+      "density_persons_per_m2": 0.07246639370991703,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 527,
+      "t_sec": 17.566666666666666,
+      "in_quad": 6,
+      "density_persons_per_m2": 0.14493278741983406,
+      "peak_cell_density_persons_per_m2": 2.0
+    },
+    {
+      "frame_id": 528,
+      "t_sec": 17.6,
+      "in_quad": 5,
+      "density_persons_per_m2": 0.12077732284986172,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 529,
+      "t_sec": 17.633333333333333,
+      "in_quad": 4,
+      "density_persons_per_m2": 0.09662185827988937,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 530,
+      "t_sec": 17.666666666666668,
+      "in_quad": 3,
+      "density_persons_per_m2": 0.07246639370991703,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 531,
+      "t_sec": 17.7,
+      "in_quad": 3,
+      "density_persons_per_m2": 0.07246639370991703,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 532,
+      "t_sec": 17.733333333333334,
+      "in_quad": 3,
+      "density_persons_per_m2": 0.07246639370991703,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 533,
+      "t_sec": 17.766666666666666,
+      "in_quad": 4,
+      "density_persons_per_m2": 0.09662185827988937,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 534,
+      "t_sec": 17.8,
+      "in_quad": 1,
+      "density_persons_per_m2": 0.02415546456997234,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 535,
+      "t_sec": 17.833333333333332,
+      "in_quad": 1,
+      "density_persons_per_m2": 0.02415546456997234,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 536,
+      "t_sec": 17.866666666666667,
+      "in_quad": 2,
+      "density_persons_per_m2": 0.04831092913994468,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 537,
+      "t_sec": 17.9,
+      "in_quad": 4,
+      "density_persons_per_m2": 0.09662185827988937,
+      "peak_cell_density_persons_per_m2": 2.0
+    },
+    {
+      "frame_id": 538,
+      "t_sec": 17.933333333333334,
+      "in_quad": 2,
+      "density_persons_per_m2": 0.04831092913994468,
+      "peak_cell_density_persons_per_m2": 1.0
+    },
+    {
+      "frame_id": 539,
+      "t_sec": 17.966666666666665,
+      "in_quad": 2,
+      "density_persons_per_m2": 0.04831092913994468,
+      "peak_cell_density_persons_per_m2": 1.0
+    }
+  ]
+}

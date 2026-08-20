@@ -1,0 +1,29 @@
+# macOS metadata
+.DS_Store
+
+# Virtual environment
+.venv/
+
+# Python bytecode/cache
+__pycache__/
+*.pyc
+.pytest_cache/
+
+# Video and model weights -- must not be committed
+data/*.mp4
+output/*.mp4
+models/*.pt
+
+# Regenerable working output (plural outputs/ -- trajectories, snapshots,
+# sweep artefacts, generated videos). output/handcount_frames/ is a large
+# PNG dump under the historical (singular) output/ dir, excluded for the
+# same "large artefact" reason -- output/'s small JSON/JSONL summary files
+# (detect_track_stats.json, world_density_stats.json,
+# world_density_records.jsonl) stay tracked since docs cite exact numbers
+# from them as findings evidence.
+outputs/
+output/handcount_frames/
+
+# Full-resolution video-frame PNGs referenced by docs -- several MB each.
+# The markdown docs that cite them stay tracked; the images don't.
+docs/handcount/*.png
