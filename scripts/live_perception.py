@@ -341,7 +341,6 @@ class LivePerceptionRunner:
         if args.ground_anchor == "centroid":
             print("[live_perception] WARNING: --ground-anchor centroid -- this is the WRONG anchor "
                   "for oblique views (see perception/ground.py), running in explicit comparison mode only.")
-        self.polygon_zone = sv.PolygonZone(polygon=np.round(quad_px).astype(np.int64))
 
         # Metric top-down heatmap -- real persons/m^2, valid ONLY inside the
         # calibrated quad (the homography isn't trustworthy outside it).
@@ -404,9 +403,24 @@ class LivePerceptionRunner:
         raw_detections = self.detector.detect(frame)
         detect_ms = getattr(self.detector, "last_latency_ms", 0.0)
 
-        in_zone_mask = self.polygon_zone.trigger(raw_detections)
+        # Single source of truth for "is this detection in the calibrated
+        # quad": GroundProjector's own anchor-aware point-in-polygon test,
+        # computed once here and reused everywhere below. This used to run
+        # TWICE with two different polygon representations -- sv.PolygonZone
+        # (rounded to integer pixels) filtered the tracker's input, then
+        # GroundProjector's own full-float test ran AGAIN just for the
+        # heatmap -- and they occasionally disagreed right at the boundary
+        # (measured on real footage: ~0.15% of in-quad detections were
+        # silently dropped before ever reaching the heatmap, purely from
+        # int-vs-float polygon rounding). One test, reused, means "in quad"
+        # means the same thing everywhere in this frame, and the heatmap
+        # genuinely tracks everyone detected in the quad -- not everyone
+        # minus a rounding artifact.
+        raw_projection = self.ground_projector.project(raw_detections.xyxy)
+        in_zone_mask = raw_projection.in_quad
         in_quad_detections = raw_detections[in_zone_mask]
         out_of_quad_detections = raw_detections[~in_zone_mask]
+        in_quad_world_points_all = raw_projection.world_xy[in_zone_mask]
 
         t0 = time.perf_counter()
         tracked = self.tracker.update(in_quad_detections)
@@ -425,7 +439,7 @@ class LivePerceptionRunner:
         # (see _match_mask_by_xyxy's docstring).
         confirmed_match_mask = _match_mask_by_xyxy(in_quad_detections.xyxy, confirmed.xyxy)
         untracked_in_quad_xyxy = in_quad_detections.xyxy[~confirmed_match_mask]
-        untracked_in_quad_foot_px = foot_points(untracked_in_quad_xyxy)
+        untracked_in_quad_foot_px = raw_projection.foot_px[in_zone_mask][~confirmed_match_mask]
 
         projection = self.ground_projector.project(confirmed.xyxy)
 
@@ -434,16 +448,14 @@ class LivePerceptionRunner:
         self.funnel_totals["in_quad"] += len(in_quad_detections)
         self.funnel_totals["tracked"] += len(confirmed)
 
-        # Metric heatmap: fed from EVERY in-quad detection, not just
-        # confirmed tracks. Confirmed-only starves the heatmap almost
-        # completely -- OC-SORT confirms a small fraction of in-quad
-        # detections (see docs/TOTEST_FINDINGS.md / REAL_FOOTAGE_FINDINGS.md
-        # C3, ~85-97% loss before confirmation on the two real clips
-        # measured) -- while the heatmap's own job (density) doesn't need a
-        # stable track ID, only a valid ground position, which every
-        # in-quad detection already has.
-        in_quad_projection = self.ground_projector.project(in_quad_detections.xyxy)
-        in_quad_world_points_all = in_quad_projection.world_xy[in_quad_projection.in_quad]
+        # Metric heatmap: fed from EVERY in-quad detection (raw_projection,
+        # computed once above), not just confirmed tracks. Confirmed-only
+        # starves the heatmap almost completely -- OC-SORT confirms a small
+        # fraction of in-quad detections (see docs/TOTEST_FINDINGS.md /
+        # REAL_FOOTAGE_FINDINGS.md C3, ~85-97% loss before confirmation on
+        # the two real clips measured) -- while the heatmap's own job
+        # (density) doesn't need a stable track ID, only a valid ground
+        # position, which every in-quad detection already has.
         self.heatmap.update(t_sec, in_quad_world_points_all)
 
         # Whole-frame pixel heatmap: fed from every raw detection,
