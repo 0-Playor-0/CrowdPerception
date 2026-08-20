@@ -84,6 +84,38 @@ def test_ground_projector_excludes_points_outside_quad() -> None:
     assert result.n_excluded == 1
 
 
+def test_ground_projector_defaults_to_foot_anchor() -> None:
+    H = np.eye(3)
+    quad_px = np.array([[0.0, 0.0], [100.0, 0.0], [100.0, 100.0], [0.0, 100.0]])
+    projector = GroundProjector(H, quad_px)
+    assert projector.anchor == "foot"
+
+
+def test_ground_projector_centroid_anchor_uses_centroid_not_foot() -> None:
+    H = np.eye(3)   # identity: world coords == pixel coords, keeps this test purely about which anchor is picked
+    quad_px = np.array([[0.0, 0.0], [100.0, 0.0], [100.0, 100.0], [0.0, 100.0]])
+    box = np.array([[10.0, 20.0, 30.0, 60.0]])   # foot=(20,60), centroid=(20,40)
+
+    foot_projector = GroundProjector(H, quad_px, anchor="foot")
+    centroid_projector = GroundProjector(H, quad_px, anchor="centroid")
+
+    foot_result = foot_projector.project(box)
+    centroid_result = centroid_projector.project(box)
+
+    np.testing.assert_allclose(foot_result.foot_px[0], [20.0, 60.0])
+    np.testing.assert_allclose(centroid_result.foot_px[0], [20.0, 40.0])
+    assert not np.allclose(foot_result.world_xy[0], centroid_result.world_xy[0]), (
+        "foot and centroid anchors must project to different world positions for a non-degenerate box"
+    )
+
+
+def test_ground_projector_rejects_invalid_anchor() -> None:
+    H = np.eye(3)
+    quad_px = np.array([[0.0, 0.0], [100.0, 0.0], [100.0, 100.0], [0.0, 100.0]])
+    with pytest.raises(ValueError):
+        GroundProjector(H, quad_px, anchor="head")
+
+
 @pytest.mark.skipif(
     not (CALIBRATION_PATH.exists() and VIDEO_PATH.exists() and MODEL_PATH.exists()),
     reason="needs the real demo video, model, and calibration file",

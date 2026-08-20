@@ -277,7 +277,11 @@ def draw_hud(img: np.ndarray, hud: dict) -> None:
     ]
     is_estimated = hud["calibration_source"] == "ESTIMATED"
     cal_line = f"calibration: {hud['calibration_source']}" + ("  -- NOT MEASURED" if is_estimated else "")
-    all_lines = lines + [cal_line]
+    is_centroid_anchor = hud["ground_anchor"] == "centroid"
+    anchor_line = f"ground anchor: {hud['ground_anchor']}" + (
+        "  -- WRONG for oblique views, comparison mode" if is_centroid_anchor else ""
+    )
+    all_lines = lines + [cal_line, anchor_line]
 
     max_width = 0
     for line in all_lines:
@@ -303,6 +307,10 @@ def draw_hud(img: np.ndarray, hud: dict) -> None:
 
     cal_color = (0, 150, 255) if is_estimated else (60, 220, 60)
     cv2.putText(img, cal_line, (text_x, y), font, font_scale, cal_color, thickness + 1, cv2.LINE_AA)
+    y += line_height
+
+    anchor_color = (0, 60, 255) if is_centroid_anchor else (60, 220, 60)
+    cv2.putText(img, anchor_line, (text_x, y), font, font_scale, anchor_color, thickness + 1, cv2.LINE_AA)
 
     if hud["paused"]:
         _put_outlined_text(img, "PAUSED (space to resume)", (x0, y0 - 12), (0, 220, 255), 0.6)
@@ -329,7 +337,10 @@ class LivePerceptionRunner:
         H = np.array(calibration["H"], dtype=np.float64)
         self.quad_px = quad_px
         self.quad_m = quad_m
-        self.ground_projector = GroundProjector(H, quad_px)
+        self.ground_projector = GroundProjector(H, quad_px, anchor=args.ground_anchor)
+        if args.ground_anchor == "centroid":
+            print("[live_perception] WARNING: --ground-anchor centroid -- this is the WRONG anchor "
+                  "for oblique views (see perception/ground.py), running in explicit comparison mode only.")
         self.polygon_zone = sv.PolygonZone(polygon=np.round(quad_px).astype(np.int64))
 
         # Metric top-down heatmap -- real persons/m^2, valid ONLY inside the
@@ -492,6 +503,7 @@ class LivePerceptionRunner:
             "tiling": self.args.tile,
             "heatmap_mode": self.heatmap_mode,
             "calibration_source": self.calibration["source"],
+            "ground_anchor": self.ground_projector.anchor,
             "paused": False,
         }
 
@@ -567,6 +579,14 @@ def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     parser.add_argument("--video", required=True)
     parser.add_argument("--calibration", default=None, help="default: calibration/<video_stem>.json")
+    parser.add_argument("--ground-anchor", choices=["foot", "centroid"], default="foot",
+                         help="pixel-box anchor projected onto the ground plane. 'foot' (default, "
+                              "bottom-centre of the box) is CORRECT for oblique camera views -- see "
+                              "perception/ground.py's module docstring and "
+                              "tests/test_ground.py::test_foot_vs_centroid_disagreement_on_a_real_frame "
+                              "(0.88m measured disagreement on one ordinary real-footage detection). "
+                              "'centroid' is WRONG for this project's footage and exists only for an "
+                              "explicit, clearly-logged A/B comparison -- see scripts/compare_ground_anchor.py.")
     parser.add_argument("--model", default="models/yolo11s.pt")
     parser.add_argument("--device", default="auto")
     parser.add_argument("--confidence-threshold", type=float, default=0.02,
