@@ -1,10 +1,11 @@
 """Tests for perception/ground.py.
 
-Covers: foot-point vs centroid disagreement (quantified on a real detected
-box from the project's real footage, not just a synthetic example -- the
-whole point is to show the size of the bug a centroid anchor would have
-been), known-corner projection against the calibration file's own stated
-world coordinate, and in/out-of-quad exclusion bookkeeping.
+Covers: why foot-point is the fixed, only projection anchor (quantified
+against centroid on a real detected box from the project's own footage,
+not a synthetic example -- documenting the size of the error a centroid
+anchor would introduce, not comparing two supported modes), known-corner
+projection against the calibration file's own stated world coordinate,
+and in/out-of-quad exclusion bookkeeping.
 """
 
 from __future__ import annotations
@@ -84,49 +85,20 @@ def test_ground_projector_excludes_points_outside_quad() -> None:
     assert result.n_excluded == 1
 
 
-def test_ground_projector_defaults_to_foot_anchor() -> None:
-    H = np.eye(3)
-    quad_px = np.array([[0.0, 0.0], [100.0, 0.0], [100.0, 100.0], [0.0, 100.0]])
-    projector = GroundProjector(H, quad_px)
-    assert projector.anchor == "foot"
-
-
-def test_ground_projector_centroid_anchor_uses_centroid_not_foot() -> None:
-    H = np.eye(3)   # identity: world coords == pixel coords, keeps this test purely about which anchor is picked
-    quad_px = np.array([[0.0, 0.0], [100.0, 0.0], [100.0, 100.0], [0.0, 100.0]])
-    box = np.array([[10.0, 20.0, 30.0, 60.0]])   # foot=(20,60), centroid=(20,40)
-
-    foot_projector = GroundProjector(H, quad_px, anchor="foot")
-    centroid_projector = GroundProjector(H, quad_px, anchor="centroid")
-
-    foot_result = foot_projector.project(box)
-    centroid_result = centroid_projector.project(box)
-
-    np.testing.assert_allclose(foot_result.foot_px[0], [20.0, 60.0])
-    np.testing.assert_allclose(centroid_result.foot_px[0], [20.0, 40.0])
-    assert not np.allclose(foot_result.world_xy[0], centroid_result.world_xy[0]), (
-        "foot and centroid anchors must project to different world positions for a non-degenerate box"
-    )
-
-
-def test_ground_projector_rejects_invalid_anchor() -> None:
-    H = np.eye(3)
-    quad_px = np.array([[0.0, 0.0], [100.0, 0.0], [100.0, 100.0], [0.0, 100.0]])
-    with pytest.raises(ValueError):
-        GroundProjector(H, quad_px, anchor="head")
-
-
 @pytest.mark.skipif(
     not (CALIBRATION_PATH.exists() and VIDEO_PATH.exists() and MODEL_PATH.exists()),
     reason="needs the real demo video, model, and calibration file",
 )
-def test_foot_vs_centroid_disagreement_on_a_real_frame() -> None:
-    """Runs the real detector on frame 0 of the real demo video, takes one
-    in-quad detection, and prints/asserts how many metres apart the foot
-    point and centroid anchors land after projection through the real
-    calibration homography -- this is the size of the bug a centroid-based
-    ground projection would have introduced, made concrete instead of
-    theoretical."""
+def test_foot_point_is_the_correct_anchor_not_centroid() -> None:
+    """Justifies the fixed choice of foot-point anchoring in
+    perception/ground.py: runs the real detector on frame 0 of the real
+    demo video, takes one in-quad detection, and measures how many metres
+    apart the foot point and centroid anchors land after projection
+    through the real calibration homography. GroundProjector only ever
+    uses foot_points() -- centroid_points() exists solely so this test can
+    quantify why. This is not a comparison of two supported modes; it is
+    documentation, in the form of a real measurement, of why centroid was
+    rejected."""
     calibration = _load_calibration()
     H = np.array(calibration["H"], dtype=np.float64)
     quad_px = np.array(calibration["image_points"], dtype=np.float64)
@@ -156,8 +128,9 @@ def test_foot_vs_centroid_disagreement_on_a_real_frame() -> None:
           f"centroid_world={centroid_world.tolist()}  disagreement={disagreement_m:.3f}m")
 
     assert disagreement_m > 0.1, (
-        "expected the foot-point and centroid anchors to disagree by a "
-        "non-trivial margin on this oblique real footage -- if this ever "
-        "shrinks to ~0 either the box is degenerate or the camera geometry "
-        "changed enough to revisit this assumption"
+        "foot-point is fixed as the only ground-projection anchor because "
+        "centroid disagrees with it by a non-trivial margin on this oblique "
+        "real footage -- if this measurement ever shrinks to ~0, either this "
+        "box is degenerate or the camera geometry changed enough that the "
+        "fixed-anchor decision in perception/ground.py should be revisited"
     )

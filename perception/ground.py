@@ -1,5 +1,4 @@
-"""Pixel-box -> ground-plane metre projection, anchored at the FOOT POINT
-by default.
+"""Pixel-box -> ground-plane metre projection, anchored at the FOOT POINT.
 
 CRITICAL, and the entire reason this module is separate from
 perception/geometry.py's generic ViewTransformer: the anchor for projecting
@@ -11,7 +10,7 @@ torso-height point does not lie on the ground plane at all, so running it
 through a ground-plane homography produces a position that is metres off,
 not just slightly biased. The homography is only valid for points that
 actually lie on the calibrated ground plane. Measured on real footage
-(tests/test_ground.py::test_foot_vs_centroid_disagreement_on_a_real_frame):
+(tests/test_ground.py::test_foot_point_is_the_correct_anchor_not_centroid):
 0.88m disagreement on a single ordinary detection, not a worst case.
 
 Audit of existing centroid-vs-foot-point usage in this repo (checked before
@@ -21,13 +20,14 @@ scripts/world_density.py's main loop already uses
 i.e. the foot point, not the centroid. No centroid-based ground projection
 bug was found anywhere in this codebase.
 
-GroundProjector.anchor exists so the two can be A/B compared on purpose
-(see scripts/live_perception.py's --ground-anchor and
-scripts/compare_ground_anchor.py) -- default stays "foot" everywhere;
-"centroid" is an explicit, clearly-logged opt-in for that comparison, not
-a rehabilitated alternative. Nothing above changes: centroid is still
-wrong for this project's oblique real footage, this just makes "how wrong,
-concretely, on this clip" answerable instead of asserted.
+This is a fixed decision, not a configuration option. An earlier version of
+this module let the anchor be selected at runtime (GroundProjector's
+"anchor" parameter, a --ground-anchor CLI flag, and a
+scripts/compare_ground_anchor.py A/B tool) to measure the disagreement
+empirically across a full clip. That measurement is done -- centroid is
+wrong here, foot is right, there is nothing left to compare -- and the
+selectability was reverted in full: no anchor parameter, no CLI flag, no
+branch. foot_points() is the only anchor perception/ground.py ever uses.
 """
 
 from __future__ import annotations
@@ -57,11 +57,11 @@ def foot_points(xyxy: np.ndarray) -> np.ndarray:
 
 def centroid_points(xyxy: np.ndarray) -> np.ndarray:
     """Box centroid -- (x1+x2)/2, (y1+y2)/2. WRONG anchor for ground-plane
-    projection on an oblique view -- see module docstring. Exists for two
-    things: the foot-vs-centroid disagreement test in tests/test_ground.py,
-    and GroundProjector(..., anchor="centroid") for the explicit, opt-in
-    A/B comparison in scripts/live_perception.py / compare_ground_anchor.py.
-    The live pipeline's default stays "foot"."""
+    projection on an oblique view -- see module docstring. Exists ONLY to
+    support tests/test_ground.py's regression test that documents why foot
+    is the fixed choice (quantifies the real disagreement on real footage).
+    Nothing in the live pipeline calls this -- GroundProjector always uses
+    foot_points()."""
     xyxy = np.asarray(xyxy, dtype=np.float64)
     if xyxy.size == 0:
         return xyxy.reshape(0, 2)
@@ -87,17 +87,14 @@ def to_ground(points_px: np.ndarray, H: np.ndarray) -> np.ndarray:
 @dataclass
 class GroundProjection:
     world_xy: np.ndarray       # (N, 2) metres -- NaN row where in_quad is False (no valid ground position)
-    foot_px: np.ndarray        # (N, 2) pixels -- the anchor actually used (foot by default; centroid
-                                #   if this GroundProjector was constructed with anchor="centroid" --
-                                #   the field keeps its name for backward compatibility, it always
-                                #   holds "whatever anchor this projector is configured for")
-    in_quad: np.ndarray        # (N,) bool -- True if the anchor point falls inside the calibrated quad
+    foot_px: np.ndarray        # (N, 2) pixels -- the foot point (bottom-centre) used for this projection
+    in_quad: np.ndarray        # (N,) bool -- True if the foot point falls inside the calibrated quad
     n_excluded: int            # convenience: int(np.sum(~in_quad))
 
 
 class GroundProjector:
-    """Combines anchor-point extraction, the pixel->metre homography, and
-    quad-membership exclusion into one call. A detection whose anchor point
+    """Combines foot-point extraction, the pixel->metre homography, and
+    quad-membership exclusion into one call. A detection whose foot point
     falls outside the calibrated quad has no valid ground position -- rather
     than silently emitting whatever the homography extrapolates to out
     there (garbage: the homography is only fit to be trustworthy inside the
@@ -107,27 +104,23 @@ class GroundProjector:
     entirely -- only their world coordinate is unusable, not the detection
     itself.
 
-    anchor: "foot" (default, CORRECT for oblique views -- see module
-        docstring) or "centroid" (WRONG for oblique views, kept only for
-        the explicit, clearly-logged A/B comparison this class exists to
-        make possible -- see scripts/live_perception.py's --ground-anchor).
+    This is also the SINGLE source of truth for "is this detection in the
+    calibrated quad" for the whole live pipeline -- callers should call
+    project() once per frame on the full detection set and reuse the result
+    (in_quad mask, world_xy, foot_px) everywhere, rather than running a
+    second, independent in-quad test elsewhere. A previous version of
+    scripts/live_perception.py ran a second test (sv.PolygonZone, on a
+    rounded-to-integer-pixels copy of the quad) purely to filter the
+    tracker's input, and it silently disagreed with this class's own
+    full-float test on ~0.15% of real in-quad detections at the boundary --
+    fixed by removing that second test, not by reconciling the two.
     """
 
-    def __init__(self, H: np.ndarray, quad_px: np.ndarray, anchor: str = "foot") -> None:
+    def __init__(self, H: np.ndarray, quad_px: np.ndarray) -> None:
         self._H = np.asarray(H, dtype=np.float64)
         self._quad_px = np.asarray(quad_px, dtype=np.float64)
         if self._quad_px.shape != (4, 2):
             raise ValueError(f"quad_px must be shape (4, 2), got {self._quad_px.shape}")
-        if anchor not in ("foot", "centroid"):
-            raise ValueError(f"anchor must be 'foot' or 'centroid', got {anchor!r}")
-        self._anchor = anchor
-
-    @property
-    def anchor(self) -> str:
-        return self._anchor
-
-    def _anchor_points(self, xyxy: np.ndarray) -> np.ndarray:
-        return foot_points(xyxy) if self._anchor == "foot" else centroid_points(xyxy)
 
     def project(self, xyxy: np.ndarray) -> GroundProjection:
         xyxy = np.asarray(xyxy, dtype=np.float64)
@@ -136,18 +129,18 @@ class GroundProjector:
             empty2 = np.zeros((0, 2), dtype=np.float64)
             return GroundProjection(empty2, empty2, np.zeros((0,), dtype=bool), 0)
 
-        anchor_pts = self._anchor_points(xyxy)
+        feet = foot_points(xyxy)
         in_quad = np.array(
-            [point_in_polygon(pt, self._quad_px) for pt in anchor_pts], dtype=bool
+            [point_in_polygon(pt, self._quad_px) for pt in feet], dtype=bool
         )
 
         world_xy = np.full((n, 2), np.nan, dtype=np.float64)
         if in_quad.any():
-            world_xy[in_quad] = to_ground(anchor_pts[in_quad], self._H)
+            world_xy[in_quad] = to_ground(feet[in_quad], self._H)
 
         return GroundProjection(
             world_xy=world_xy,
-            foot_px=anchor_pts,
+            foot_px=feet,
             in_quad=in_quad,
             n_excluded=int(np.sum(~in_quad)),
         )
