@@ -11,6 +11,7 @@ __pycache__/
 
 # Video and model weights -- must not be committed
 data/*.mp4
+data/uploads/
 output/*.mp4
 models/*.pt
 

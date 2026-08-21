@@ -9,17 +9,25 @@ oblique camera view (any camera that isn't looking straight down), a
 torso-height point does not lie on the ground plane at all, so running it
 through a ground-plane homography produces a position that is metres off,
 not just slightly biased. The homography is only valid for points that
-actually lie on the calibrated ground plane.
+actually lie on the calibrated ground plane. Measured on real footage
+(tests/test_ground.py::test_foot_point_is_the_correct_anchor_not_centroid):
+0.88m disagreement on a single ordinary detection, not a worst case.
 
 Audit of existing centroid-vs-foot-point usage in this repo (checked before
 writing this module, since the task asked for it explicitly):
 scripts/world_density.py's main loop already uses
 `detections.get_anchors_coordinates(anchor=sv.Position.BOTTOM_CENTER)`,
 i.e. the foot point, not the centroid. No centroid-based ground projection
-bug was found anywhere in this codebase. This module exists to give
-tiled/tracked pixel boxes the same correct anchor with vectorised NumPy
-instead of supervision's per-Detections helper, and to add the
-in-quad-or-excluded bookkeeping that call site doesn't do.
+bug was found anywhere in this codebase.
+
+This is a fixed decision, not a configuration option. An earlier version of
+this module let the anchor be selected at runtime (GroundProjector's
+"anchor" parameter, a --ground-anchor CLI flag, and a
+scripts/compare_ground_anchor.py A/B tool) to measure the disagreement
+empirically across a full clip. That measurement is done -- centroid is
+wrong here, foot is right, there is nothing left to compare -- and the
+selectability was reverted in full: no anchor parameter, no CLI flag, no
+branch. foot_points() is the only anchor perception/ground.py ever uses.
 """
 
 from __future__ import annotations
@@ -48,10 +56,12 @@ def foot_points(xyxy: np.ndarray) -> np.ndarray:
 
 
 def centroid_points(xyxy: np.ndarray) -> np.ndarray:
-    """Box centroid -- (x1+x2)/2, (y1+y2)/2. Provided ONLY for the
-    foot-vs-centroid disagreement test (tests/test_ground.py) that
-    quantifies how far wrong a centroid-based projection would have been on
-    this project's real footage; nothing in the live pipeline uses this."""
+    """Box centroid -- (x1+x2)/2, (y1+y2)/2. WRONG anchor for ground-plane
+    projection on an oblique view -- see module docstring. Exists ONLY to
+    support tests/test_ground.py's regression test that documents why foot
+    is the fixed choice (quantifies the real disagreement on real footage).
+    Nothing in the live pipeline calls this -- GroundProjector always uses
+    foot_points()."""
     xyxy = np.asarray(xyxy, dtype=np.float64)
     if xyxy.size == 0:
         return xyxy.reshape(0, 2)
@@ -77,7 +87,7 @@ def to_ground(points_px: np.ndarray, H: np.ndarray) -> np.ndarray:
 @dataclass
 class GroundProjection:
     world_xy: np.ndarray       # (N, 2) metres -- NaN row where in_quad is False (no valid ground position)
-    foot_px: np.ndarray        # (N, 2) pixels -- the anchor actually used
+    foot_px: np.ndarray        # (N, 2) pixels -- the foot point (bottom-centre) used for this projection
     in_quad: np.ndarray        # (N,) bool -- True if the foot point falls inside the calibrated quad
     n_excluded: int            # convenience: int(np.sum(~in_quad))
 
@@ -93,6 +103,17 @@ class GroundProjector:
     detections (dimmed/dashed, in_quad=False) rather than drop them
     entirely -- only their world coordinate is unusable, not the detection
     itself.
+
+    This is also the SINGLE source of truth for "is this detection in the
+    calibrated quad" for the whole live pipeline -- callers should call
+    project() once per frame on the full detection set and reuse the result
+    (in_quad mask, world_xy, foot_px) everywhere, rather than running a
+    second, independent in-quad test elsewhere. A previous version of
+    scripts/live_perception.py ran a second test (sv.PolygonZone, on a
+    rounded-to-integer-pixels copy of the quad) purely to filter the
+    tracker's input, and it silently disagreed with this class's own
+    full-float test on ~0.15% of real in-quad detections at the boundary --
+    fixed by removing that second test, not by reconciling the two.
     """
 
     def __init__(self, H: np.ndarray, quad_px: np.ndarray) -> None:

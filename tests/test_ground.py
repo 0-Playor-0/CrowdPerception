@@ -1,10 +1,11 @@
 """Tests for perception/ground.py.
 
-Covers: foot-point vs centroid disagreement (quantified on a real detected
-box from the project's real footage, not just a synthetic example -- the
-whole point is to show the size of the bug a centroid anchor would have
-been), known-corner projection against the calibration file's own stated
-world coordinate, and in/out-of-quad exclusion bookkeeping.
+Covers: why foot-point is the fixed, only projection anchor (quantified
+against centroid on a real detected box from the project's own footage,
+not a synthetic example -- documenting the size of the error a centroid
+anchor would introduce, not comparing two supported modes), known-corner
+projection against the calibration file's own stated world coordinate,
+and in/out-of-quad exclusion bookkeeping.
 """
 
 from __future__ import annotations
@@ -88,13 +89,16 @@ def test_ground_projector_excludes_points_outside_quad() -> None:
     not (CALIBRATION_PATH.exists() and VIDEO_PATH.exists() and MODEL_PATH.exists()),
     reason="needs the real demo video, model, and calibration file",
 )
-def test_foot_vs_centroid_disagreement_on_a_real_frame() -> None:
-    """Runs the real detector on frame 0 of the real demo video, takes one
-    in-quad detection, and prints/asserts how many metres apart the foot
-    point and centroid anchors land after projection through the real
-    calibration homography -- this is the size of the bug a centroid-based
-    ground projection would have introduced, made concrete instead of
-    theoretical."""
+def test_foot_point_is_the_correct_anchor_not_centroid() -> None:
+    """Justifies the fixed choice of foot-point anchoring in
+    perception/ground.py: runs the real detector on frame 0 of the real
+    demo video, takes one in-quad detection, and measures how many metres
+    apart the foot point and centroid anchors land after projection
+    through the real calibration homography. GroundProjector only ever
+    uses foot_points() -- centroid_points() exists solely so this test can
+    quantify why. This is not a comparison of two supported modes; it is
+    documentation, in the form of a real measurement, of why centroid was
+    rejected."""
     calibration = _load_calibration()
     H = np.array(calibration["H"], dtype=np.float64)
     quad_px = np.array(calibration["image_points"], dtype=np.float64)
@@ -124,8 +128,9 @@ def test_foot_vs_centroid_disagreement_on_a_real_frame() -> None:
           f"centroid_world={centroid_world.tolist()}  disagreement={disagreement_m:.3f}m")
 
     assert disagreement_m > 0.1, (
-        "expected the foot-point and centroid anchors to disagree by a "
-        "non-trivial margin on this oblique real footage -- if this ever "
-        "shrinks to ~0 either the box is degenerate or the camera geometry "
-        "changed enough to revisit this assumption"
+        "foot-point is fixed as the only ground-projection anchor because "
+        "centroid disagrees with it by a non-trivial margin on this oblique "
+        "real footage -- if this measurement ever shrinks to ~0, either this "
+        "box is degenerate or the camera geometry changed enough that the "
+        "fixed-anchor decision in perception/ground.py should be revisited"
     )

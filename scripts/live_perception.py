@@ -330,7 +330,6 @@ class LivePerceptionRunner:
         self.quad_px = quad_px
         self.quad_m = quad_m
         self.ground_projector = GroundProjector(H, quad_px)
-        self.polygon_zone = sv.PolygonZone(polygon=np.round(quad_px).astype(np.int64))
 
         # Metric top-down heatmap -- real persons/m^2, valid ONLY inside the
         # calibrated quad (the homography isn't trustworthy outside it).
@@ -386,6 +385,14 @@ class LivePerceptionRunner:
         self.funnel_totals = {"total": 0, "in_quad": 0, "tracked": 0, "emitted": 0}
         self._last_funnel_print = time.perf_counter()
 
+        # Metadata only -- set by build_composite() below, read by
+        # server/pipeline_runner.py to split the composite it returns back
+        # into separate camera/heatmap images for the two MJPEG streams,
+        # without recomputing (and risking silently drifting from) the
+        # boundary build_composite actually used. Does not affect this
+        # class's own rendering in any way -- nothing here reads it back.
+        self.last_camera_pane_width_px: int | None = None
+
     def process_frame(self, frame: np.ndarray, frame_idx: int) -> tuple[np.ndarray, dict]:
         t_sec = frame_idx / self.fps
         t_frame_start = time.perf_counter()
@@ -393,9 +400,24 @@ class LivePerceptionRunner:
         raw_detections = self.detector.detect(frame)
         detect_ms = getattr(self.detector, "last_latency_ms", 0.0)
 
-        in_zone_mask = self.polygon_zone.trigger(raw_detections)
+        # Single source of truth for "is this detection in the calibrated
+        # quad": GroundProjector's own foot-point-anchored point-in-polygon
+        # test, computed once here and reused everywhere below. This used
+        # to run TWICE with two different polygon representations --
+        # sv.PolygonZone (rounded to integer pixels) filtered the tracker's
+        # input, then GroundProjector's own full-float test ran AGAIN just
+        # for the heatmap -- and they occasionally disagreed right at the
+        # boundary (measured on real footage: ~0.15% of in-quad detections
+        # were silently dropped before ever reaching the heatmap, purely
+        # from int-vs-float polygon rounding). One test, reused, means "in
+        # quad" means the same thing everywhere in this frame, and the
+        # heatmap genuinely tracks everyone detected in the quad -- not
+        # everyone minus a rounding artifact.
+        raw_projection = self.ground_projector.project(raw_detections.xyxy)
+        in_zone_mask = raw_projection.in_quad
         in_quad_detections = raw_detections[in_zone_mask]
         out_of_quad_detections = raw_detections[~in_zone_mask]
+        in_quad_world_points_all = raw_projection.world_xy[in_zone_mask]
 
         t0 = time.perf_counter()
         tracked = self.tracker.update(in_quad_detections)
@@ -414,7 +436,7 @@ class LivePerceptionRunner:
         # (see _match_mask_by_xyxy's docstring).
         confirmed_match_mask = _match_mask_by_xyxy(in_quad_detections.xyxy, confirmed.xyxy)
         untracked_in_quad_xyxy = in_quad_detections.xyxy[~confirmed_match_mask]
-        untracked_in_quad_foot_px = foot_points(untracked_in_quad_xyxy)
+        untracked_in_quad_foot_px = raw_projection.foot_px[in_zone_mask][~confirmed_match_mask]
 
         projection = self.ground_projector.project(confirmed.xyxy)
 
@@ -423,16 +445,14 @@ class LivePerceptionRunner:
         self.funnel_totals["in_quad"] += len(in_quad_detections)
         self.funnel_totals["tracked"] += len(confirmed)
 
-        # Metric heatmap: fed from EVERY in-quad detection, not just
-        # confirmed tracks. Confirmed-only starves the heatmap almost
-        # completely -- OC-SORT confirms a small fraction of in-quad
-        # detections (see docs/TOTEST_FINDINGS.md / REAL_FOOTAGE_FINDINGS.md
-        # C3, ~85-97% loss before confirmation on the two real clips
-        # measured) -- while the heatmap's own job (density) doesn't need a
-        # stable track ID, only a valid ground position, which every
-        # in-quad detection already has.
-        in_quad_projection = self.ground_projector.project(in_quad_detections.xyxy)
-        in_quad_world_points_all = in_quad_projection.world_xy[in_quad_projection.in_quad]
+        # Metric heatmap: fed from EVERY in-quad detection (raw_projection,
+        # computed once above), not just confirmed tracks. Confirmed-only
+        # starves the heatmap almost completely -- OC-SORT confirms a small
+        # fraction of in-quad detections (see docs/TOTEST_FINDINGS.md /
+        # REAL_FOOTAGE_FINDINGS.md C3, ~85-97% loss before confirmation on
+        # the two real clips measured) -- while the heatmap's own job
+        # (density) doesn't need a stable track ID, only a valid ground
+        # position, which every in-quad detection already has.
         self.heatmap.update(t_sec, in_quad_world_points_all)
 
         # Whole-frame pixel heatmap: fed from every raw detection,
@@ -549,6 +569,13 @@ class LivePerceptionRunner:
         draw_legend(camera_pane)
         draw_hud(camera_pane, hud)
 
+        # The real, measured width of the pane just drawn -- not a
+        # recomputation from display_scale/w, so a caller reading this
+        # afterwards (server/pipeline_runner.py) always gets the boundary
+        # this call actually used, even if the scaling/layout above changes
+        # later. Pure metadata: nothing below this line depends on it.
+        self.last_camera_pane_width_px = camera_pane.shape[1]
+
         heatmap_panel = render_heatmap_panel(
             self.heatmap, self.quad_m, self.heatmap_mode, panel_height_px=camera_pane.shape[0],
             color_variant=self.args.heatmap_color_variant,
@@ -569,11 +596,19 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--calibration", default=None, help="default: calibration/<video_stem>.json")
     parser.add_argument("--model", default="models/yolo11s.pt")
     parser.add_argument("--device", default="auto")
-    parser.add_argument("--confidence-threshold", type=float, default=0.02,
-                         help="lowered from 0.3 -> 0.2 -> 0.1 -> 0.02; this sits inside the single "
-                              "largest noise spike in the measured confidence distribution "
-                              "(see outputs/confidence_histogram*.png), not validated against a "
-                              "hand count -- see docs/TOTEST_FINDINGS.md TEST 4")
+    parser.add_argument("--confidence-threshold", type=float, default=0.15,
+                         help="raised from 0.02 -> 0.15 on the Myeongdong demo clip "
+                              "(data/127690-739144743.mp4, tiled, frames 0/135/300/512): measured "
+                              "duplicate-detection rate (same person, two boxes surviving cross-tile "
+                              "NMS) dropped from ~130%% of final detections at 0.02 to ~40%% at 0.15, "
+                              "with final detections/frame falling from ~178 to ~62 -- see "
+                              "scripts/diagnose_tiled_nms.py and outputs/nms_diagnosis_conf0.15/. "
+                              "No hand count exists for this clip, so the recall cost of raising the "
+                              "threshold this far is not quantified -- treat 0.15 as a measured "
+                              "false-positive win, not a validated precision/recall optimum. The old "
+                              "0.02 default sat inside the single largest noise spike in the measured "
+                              "confidence distribution (see outputs/confidence_histogram*.png) -- "
+                              "see docs/TOTEST_FINDINGS.md TEST 4 for that original reasoning")
     parser.add_argument("--iou-threshold", type=float, default=0.7)
 
     parser.add_argument("--tile", action=argparse.BooleanOptionalAction, default=True,
@@ -608,9 +643,8 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--heatmap-vmax", type=float, default=3.0,
                          help="fixed colour-scale ceiling for the metric top-down panel's COUNT "
                               "mode (persons/cell) -- DENSITY mode has its own fixed ceiling, "
-                              "perception.heatmap.DEFAULT_DENSITY_VMAX_PERSONS_PER_M2 (3.0 "
-                              "persons/m^2, the crush-density benchmark used throughout this "
-                              "project), independent of this flag. Lower this if 'cur. max' in "
+                              "perception.heatmap.DEFAULT_DENSITY_VMAX_PERSONS_PER_M2, "
+                              "independent of this flag. Lower this if 'cur. max' in "
                               "the panel legend stays far below it in count mode -- the heatmap "
                               "looks empty when real data is dwarfed by too high a fixed scale.")
 

@@ -1,0 +1,291 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>CrowdPerception Operator Dashboard</title>
+<link rel="stylesheet" href="/static/css/dashboard.css" />
+</head>
+<body>
+<div class="app">
+
+  <header class="topbar">
+    <div class="topbar-titles">
+      <div class="crumb">Pages / Dashboard</div>
+      <div class="title">CrowdPerception Operator Dashboard</div>
+    </div>
+    <div class="topbar-status">
+      <span class="ws-dot" id="ws-dot"></span>
+      <span id="ws-label">connecting&hellip;</span>
+      <span class="status-pill" id="session-status-pill">idle</span>
+    </div>
+  </header>
+
+  <div class="calibration-banner" id="calibration-banner">
+    <strong>CALIBRATION:</strong>
+    <span id="calibration-banner-text">No session running &mdash; start a session to see calibration source.</span>
+  </div>
+
+  <main class="dashboard">
+
+    <section class="metrics-row">
+      <div class="metric-card">
+        <div class="metric-icon icon-blue">&#128101;</div>
+        <div class="metric-body">
+          <div class="metric-label">People Detected</div>
+          <div class="metric-value"><span id="m-detected">&mdash;</span></div>
+          <div class="metric-sub">this frame</div>
+        </div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-icon icon-purple">&#9635;</div>
+        <div class="metric-body">
+          <div class="metric-label">In Calibrated Area</div>
+          <div class="metric-value"><span id="m-inquad">&mdash;</span></div>
+          <div class="metric-sub">used for density</div>
+        </div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-icon icon-amber">&#9650;</div>
+        <div class="metric-body">
+          <div class="metric-label">Peak Density</div>
+          <div class="metric-value"><span id="m-peak-density">&mdash;</span> <span class="metric-unit">p/m&sup2;</span></div>
+          <div class="metric-sub" id="m-peak-density-sub">&nbsp;</div>
+        </div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-icon icon-green">&#9201;</div>
+        <div class="metric-body">
+          <div class="metric-label">Processing Rate</div>
+          <div class="metric-value"><span id="m-fps">&mdash;</span> <span class="metric-unit">fps</span></div>
+          <div class="metric-sub">not real-time</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="mid-row">
+      <div class="card funnel-card">
+        <div class="card-header"><h3>Detection Funnel</h3></div>
+        <p class="funnel-explainer">
+          Detection finds people, the calibrated area bounds where metres are valid,
+          tracking holds identity across frames &mdash; each stage narrows honestly, nothing is hidden.
+        </p>
+        <div class="funnel-stages">
+          <div class="funnel-stage">
+            <div class="funnel-stage-value" id="f-detected">&mdash;</div>
+            <div class="funnel-stage-label">Detected</div>
+          </div>
+          <div class="funnel-arrow"><span id="f-pct-inquad">&mdash;</span></div>
+          <div class="funnel-stage">
+            <div class="funnel-stage-value" id="f-inquad">&mdash;</div>
+            <div class="funnel-stage-label">In Quad</div>
+          </div>
+          <div class="funnel-arrow"><span id="f-pct-tracked">&mdash;</span></div>
+          <div class="funnel-stage">
+            <div class="funnel-stage-value" id="f-tracked">&mdash;</div>
+            <div class="funnel-stage-label">Tracked</div>
+          </div>
+        </div>
+        <div class="funnel-bar">
+          <div class="funnel-bar-seg seg-inquad" id="funnel-bar-inquad"></div>
+          <div class="funnel-bar-seg seg-tracked" id="funnel-bar-tracked"></div>
+        </div>
+      </div>
+
+      <div class="card donut-card">
+        <div class="card-header"><h3>In Calibrated Area</h3></div>
+        <div class="donut-wrap">
+          <svg viewBox="0 0 120 68" class="donut-svg">
+            <path class="donut-track" d="M10,60 A50,50 0 0 1 110,60" />
+            <path id="donut-inquad-arc" class="donut-arc" d="M10,60 A50,50 0 0 1 110,60" />
+          </svg>
+          <div class="donut-center">
+            <div class="donut-value" id="donut-inquad-value">&mdash;</div>
+            <div class="donut-pct" id="donut-inquad-pct">&nbsp;</div>
+          </div>
+        </div>
+        <div class="donut-caption">of all detections, in-quad &mdash; used for density</div>
+      </div>
+
+      <div class="card stats-card">
+        <div class="card-header"><h3>People Detected</h3></div>
+        <div class="stats-tiles">
+          <div class="stat-tile">
+            <div class="stat-tile-label">This frame</div>
+            <div class="stat-tile-value" id="stat-detected">&mdash;</div>
+          </div>
+          <div class="stat-tile">
+            <div class="stat-tile-label">Unique IDs seen</div>
+            <div class="stat-tile-value" id="stat-ids">&mdash;</div>
+          </div>
+        </div>
+        <div class="gauge-wrap">
+          <svg viewBox="0 0 120 68" class="donut-svg">
+            <path class="donut-track" d="M10,60 A50,50 0 0 1 110,60" />
+            <path id="gauge-fps-arc" class="donut-arc gauge-arc" d="M10,60 A50,50 0 0 1 110,60" />
+          </svg>
+          <div class="donut-center">
+            <div class="donut-value" id="gauge-fps-value">&mdash;</div>
+            <div class="donut-pct">fps, not real-time</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="stream-row">
+      <div class="card stream-card">
+        <div class="card-header">
+          <h3>Live Detection</h3>
+          <span class="card-sub" id="camera-subtitle">No video loaded</span>
+        </div>
+        <div class="stream-frame">
+          <img id="camera-stream" alt="live camera stream" />
+        </div>
+      </div>
+
+      <div class="card stream-card">
+        <div class="card-header">
+          <h3>Ground-Plane Density (persons/m&sup2;)</h3>
+          <span class="card-sub" id="heatmap-subtitle">No video loaded</span>
+        </div>
+        <div class="stream-frame">
+          <img id="heatmap-stream" alt="density heatmap stream" />
+        </div>
+        <div class="heatmap-legend">
+          Scale ceiling <strong>4.0 p/m&sup2;</strong> &middot; alarm onset <strong>2.5 p/m&sup2;</strong>
+          &middot; calibration is estimated &mdash; density carries roughly 2&times; uncertainty
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <button class="fab" id="fab" title="Start / manage session">&#9654;</button>
+
+  <div class="modal-overlay hidden" id="session-modal">
+    <div class="modal">
+      <div class="modal-header">
+        <div class="stepper">
+          <div class="step-dot active" data-step="1">1<span>Video</span></div>
+          <div class="step-line"></div>
+          <div class="step-dot" data-step="2">2<span>Calibration</span></div>
+          <div class="step-line"></div>
+          <div class="step-dot" data-step="3">3<span>Options</span></div>
+        </div>
+        <button class="modal-close" id="modal-close">&times;</button>
+      </div>
+
+      <div class="modal-body">
+
+        <section class="modal-step" data-step="1">
+          <h4>Choose a video</h4>
+          <div id="video-list" class="option-list"></div>
+          <div class="upload-row">
+            <label class="upload-label" for="video-upload">or upload a file</label>
+            <input type="file" id="video-upload" accept="video/*" />
+            <span id="upload-status" class="upload-status"></span>
+          </div>
+          <p class="modal-warning">
+            Homography assumes a fixed camera. A moving camera invalidates every density figure &mdash;
+            one clip in this project was already rejected at 92.7px median drift. This tool does not check
+            fixity automatically.
+          </p>
+        </section>
+
+        <section class="modal-step hidden" data-step="2">
+          <h4>Choose calibration</h4>
+          <div id="calibration-list" class="option-list"></div>
+
+          <div class="calibrate-now">
+            <button class="btn-secondary" id="btn-calibrate-now">Calibrate now instead</button>
+            <div id="calibrate-panel" class="hidden">
+              <p class="modal-hint">
+                Click 4 points in order: near-left, near-right, far-right, far-left.
+              </p>
+              <canvas id="calibration-canvas"></canvas>
+              <div id="calibration-click-status" class="modal-hint">0 / 4 points &mdash; click near-left</div>
+              <div class="calibrate-dims">
+                <label>Width (m) <input type="number" id="calib-width-m" step="0.01" placeholder="blank = ESTIMATED" /></label>
+                <label>Height (m) <input type="number" id="calib-height-m" step="0.01" placeholder="blank = ESTIMATED" /></label>
+              </div>
+              <label class="output-path-row">
+                Output file (in calibration/)
+                <input type="text" id="calib-output-filename" />
+              </label>
+              <label class="toggle-row">
+                <input type="checkbox" id="calib-overwrite" />
+                Overwrite if a file with this name already exists
+              </label>
+              <div class="calibrate-actions">
+                <button class="btn-secondary" id="btn-calib-undo">Undo point</button>
+                <button class="btn-secondary" id="btn-calib-reset">Reset</button>
+                <button class="btn-primary" id="btn-calib-submit" disabled>Write calibration</button>
+              </div>
+              <div id="calibration-error" class="modal-error hidden"></div>
+            </div>
+          </div>
+        </section>
+
+        <section class="modal-step hidden" data-step="3">
+          <h4>Options</h4>
+
+          <div class="range-preset-group">
+            <div class="range-preset-label">Camera range</div>
+            <label class="range-preset-option">
+              <input type="radio" name="range-preset" value="long" />
+              <div>
+                <div class="range-preset-title">Long range <span class="range-preset-conf">conf 0.05</span></div>
+                <div class="range-preset-desc">Elevated / distant crowds &mdash; people are small and blurry, so
+                  detection needs to run sensitive. False positives blend into a crowd and are less visually costly.</div>
+              </div>
+            </label>
+            <label class="range-preset-option">
+              <input type="radio" name="range-preset" value="mid" checked />
+              <div>
+                <div class="range-preset-title">Mid range <span class="range-preset-conf">conf 0.15</span></div>
+                <div class="range-preset-desc">Balanced default for a typical street-level view.</div>
+              </div>
+            </label>
+            <label class="range-preset-option">
+              <input type="radio" name="range-preset" value="short" />
+              <div>
+                <div class="range-preset-title">Short range <span class="range-preset-conf">conf 0.30</span></div>
+                <div class="range-preset-desc">Close-up / few people &mdash; subjects are large and clear, so a stray
+                  false positive stands out. Run strict.</div>
+              </div>
+            </label>
+          </div>
+
+          <label class="toggle-row">
+            <input type="checkbox" id="opt-tile" checked />
+            Tiled inference (recommended &mdash; whole-frame misses far/small people)
+          </label>
+          <label class="toggle-row">
+            <input type="checkbox" id="opt-downscale" />
+            Downscale before detection (faster, lower recall)
+          </label>
+          <div id="start-progress" class="hidden">
+            <div class="spinner"></div>
+            <span id="start-progress-text">Starting session&hellip;</span>
+          </div>
+          <div id="start-error" class="modal-error hidden"></div>
+        </section>
+
+      </div>
+
+      <div class="modal-footer">
+        <button class="btn-secondary" id="btn-back" disabled>Back</button>
+        <button class="btn-secondary" id="btn-stop-session" style="display:none">Stop current session</button>
+        <button class="btn-primary" id="btn-next">Next</button>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<script src="/static/js/config.js"></script>
+<script src="/static/js/telemetry.js"></script>
+<script src="/static/js/calibration_clicker.js"></script>
+<script src="/static/js/session_modal.js"></script>
+</body>
+</html>
