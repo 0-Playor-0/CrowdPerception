@@ -385,6 +385,14 @@ class LivePerceptionRunner:
         self.funnel_totals = {"total": 0, "in_quad": 0, "tracked": 0, "emitted": 0}
         self._last_funnel_print = time.perf_counter()
 
+        # Metadata only -- set by build_composite() below, read by
+        # server/pipeline_runner.py to split the composite it returns back
+        # into separate camera/heatmap images for the two MJPEG streams,
+        # without recomputing (and risking silently drifting from) the
+        # boundary build_composite actually used. Does not affect this
+        # class's own rendering in any way -- nothing here reads it back.
+        self.last_camera_pane_width_px: int | None = None
+
     def process_frame(self, frame: np.ndarray, frame_idx: int) -> tuple[np.ndarray, dict]:
         t_sec = frame_idx / self.fps
         t_frame_start = time.perf_counter()
@@ -561,6 +569,13 @@ class LivePerceptionRunner:
         draw_legend(camera_pane)
         draw_hud(camera_pane, hud)
 
+        # The real, measured width of the pane just drawn -- not a
+        # recomputation from display_scale/w, so a caller reading this
+        # afterwards (server/pipeline_runner.py) always gets the boundary
+        # this call actually used, even if the scaling/layout above changes
+        # later. Pure metadata: nothing below this line depends on it.
+        self.last_camera_pane_width_px = camera_pane.shape[1]
+
         heatmap_panel = render_heatmap_panel(
             self.heatmap, self.quad_m, self.heatmap_mode, panel_height_px=camera_pane.shape[0],
             color_variant=self.args.heatmap_color_variant,
@@ -581,11 +596,19 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--calibration", default=None, help="default: calibration/<video_stem>.json")
     parser.add_argument("--model", default="models/yolo11s.pt")
     parser.add_argument("--device", default="auto")
-    parser.add_argument("--confidence-threshold", type=float, default=0.02,
-                         help="lowered from 0.3 -> 0.2 -> 0.1 -> 0.02; this sits inside the single "
-                              "largest noise spike in the measured confidence distribution "
-                              "(see outputs/confidence_histogram*.png), not validated against a "
-                              "hand count -- see docs/TOTEST_FINDINGS.md TEST 4")
+    parser.add_argument("--confidence-threshold", type=float, default=0.15,
+                         help="raised from 0.02 -> 0.15 on the Myeongdong demo clip "
+                              "(data/127690-739144743.mp4, tiled, frames 0/135/300/512): measured "
+                              "duplicate-detection rate (same person, two boxes surviving cross-tile "
+                              "NMS) dropped from ~130%% of final detections at 0.02 to ~40%% at 0.15, "
+                              "with final detections/frame falling from ~178 to ~62 -- see "
+                              "scripts/diagnose_tiled_nms.py and outputs/nms_diagnosis_conf0.15/. "
+                              "No hand count exists for this clip, so the recall cost of raising the "
+                              "threshold this far is not quantified -- treat 0.15 as a measured "
+                              "false-positive win, not a validated precision/recall optimum. The old "
+                              "0.02 default sat inside the single largest noise spike in the measured "
+                              "confidence distribution (see outputs/confidence_histogram*.png) -- "
+                              "see docs/TOTEST_FINDINGS.md TEST 4 for that original reasoning")
     parser.add_argument("--iou-threshold", type=float, default=0.7)
 
     parser.add_argument("--tile", action=argparse.BooleanOptionalAction, default=True,

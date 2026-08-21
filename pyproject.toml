@@ -5,16 +5,19 @@ description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.11"
 dependencies = [
+    "fastapi>=0.141.1",
     "matplotlib>=3.11.1",
     "numpy>=2.4.6",
     "opencv-python>=5.0.0.93",
     "polars>=1.43.2",
+    "python-multipart>=0.0.32",
     "scipy>=1.17.1",
     "supervision>=0.30.0",
     "torch>=2.13.0",
     "torchvision>=0.28.0",
     "trackers>=2.6.0",
     "ultralytics>=8.4.121",
+    "uvicorn[standard]>=0.52.4",
 ]
 
 [dependency-groups]
