@@ -183,6 +183,7 @@
           <div class="upload-row">
             <label class="upload-label" for="video-upload">or upload a file</label>
             <input type="file" id="video-upload" accept="video/*" />
+            <span id="upload-status" class="upload-status"></span>
           </div>
           <p class="modal-warning">
             Homography assumes a fixed camera. A moving camera invalidates every density figure &mdash;
@@ -241,7 +242,7 @@
             <label class="range-preset-option">
               <input type="radio" name="range-preset" value="mid" checked />
               <div>
-                <div class="range-preset-title">Mid range <span class="range-preset-conf">conf 0.10</span></div>
+                <div class="range-preset-title">Mid range <span class="range-preset-conf">conf 0.15</span></div>
                 <div class="range-preset-desc">Balanced default for a typical street-level view.</div>
               </div>
             </label>
@@ -263,9 +264,6 @@
             <input type="checkbox" id="opt-downscale" />
             Downscale before detection (faster, lower recall)
           </label>
-          <p class="modal-warning hidden" id="tile-downscale-warning">
-            Tiling + downscale together measured 69% recall loss on dense frames &mdash; consider disabling one.
-          </p>
           <div id="start-progress" class="hidden">
             <div class="spinner"></div>
             <span id="start-progress-text">Starting session&hellip;</span>

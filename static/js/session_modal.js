@@ -1,13 +1,18 @@
-// FAB + 3-step session-start modal. Talks to /api/videos, /api/calibrations,
-// /api/calibration/points, and /api/session/start|stop|status. No inline
-// image/base64 streaming here -- this only ever sets up a session; the
-// MJPEG <img> tags and the telemetry websocket (telemetry.js) pick it up
+// FAB + 3-step session-start modal. Talks to /api/videos, /api/videos/upload,
+// /api/calibrations, /api/calibration/points, and /api/session/start|stop|status.
+// No inline image/base64 streaming here -- this only ever sets up a session;
+// the MJPEG <img> tags and the telemetry websocket (telemetry.js) pick it up
 // once the pipeline thread starts publishing frames.
+//
+// An uploaded file is sent to /api/videos/upload as soon as it's picked --
+// not deferred to session-start -- specifically so it lands on disk in time
+// for "calibrate now" (step 2) to grab a frame from it. From that point on,
+// an uploaded video and a catalog video are the same thing: a filename
+// relative to data/, carried in wizard.videoFilename.
 
 const wizard = {
   step: 1,
   videoFilename: null,
-  videoFile: null,
   calibrationFilename: null,
 };
 
@@ -53,7 +58,7 @@ function goToStep(step) {
 function updateNextEnabled() {
   const btn = el("btn-next");
   if (wizard.step === 1) {
-    btn.disabled = !(wizard.videoFilename || wizard.videoFile);
+    btn.disabled = !wizard.videoFilename;
   } else if (wizard.step === 2) {
     btn.disabled = !wizard.calibrationFilename;
   } else {
@@ -76,8 +81,9 @@ async function refreshVideoList() {
     item.innerHTML = `<span>${v.filename}</span><span class="option-meta">${(v.size_bytes / 1e6).toFixed(1)} MB</span>`;
     item.addEventListener("click", () => {
       wizard.videoFilename = v.filename;
-      wizard.videoFile = null;
       el("video-upload").value = "";
+      el("upload-status").textContent = "";
+      el("upload-status").className = "upload-status";
       document.querySelectorAll("#video-list .option-item").forEach((n) => n.classList.remove("selected"));
       item.classList.add("selected");
       updateNextEnabled();
@@ -113,7 +119,7 @@ async function refreshCalibrationList() {
 function setupCalibrateNow() {
   el("btn-calibrate-now").addEventListener("click", async () => {
     if (!wizard.videoFilename) {
-      alert("Select an existing video from the list first — uploaded files can't be calibrated until a session starts.");
+      alert("Choose or upload a video in step 1 first.");
       return;
     }
     el("calibrate-panel").classList.remove("hidden");
@@ -164,26 +170,13 @@ function setupCalibrateNow() {
   });
 }
 
-function setupOptionsWarning() {
-  const tileBox = el("opt-tile");
-  const downscaleBox = el("opt-downscale");
-  const warning = el("tile-downscale-warning");
-  const update = () => warning.classList.toggle("hidden", !(tileBox.checked && downscaleBox.checked));
-  tileBox.addEventListener("change", update);
-  downscaleBox.addEventListener("change", update);
-}
-
 async function startSession() {
   el("start-progress").classList.remove("hidden");
   el("start-error").classList.add("hidden");
   el("btn-next").disabled = true;
 
   const form = new FormData();
-  if (wizard.videoFile) {
-    form.append("video_file", wizard.videoFile);
-  } else {
-    form.append("video_filename", wizard.videoFilename);
-  }
+  form.append("video_filename", wizard.videoFilename);
   form.append("calibration_filename", wizard.calibrationFilename);
   const rangePreset = document.querySelector('input[name="range-preset"]:checked').value;
   form.append("range_preset", rangePreset);
@@ -195,9 +188,6 @@ async function startSession() {
     const data = await res.json();
     if (!res.ok) {
       throw new Error(data.detail || "failed to start session");
-    }
-    if (data.warning) {
-      el("start-progress-text").textContent = data.warning;
     }
     await waitForRunning();
     closeModal();
@@ -225,13 +215,35 @@ document.addEventListener("DOMContentLoaded", () => {
   el("fab").addEventListener("click", openModal);
   el("modal-close").addEventListener("click", closeModal);
 
-  el("video-upload").addEventListener("change", (e) => {
+  el("video-upload").addEventListener("change", async (e) => {
     const file = e.target.files[0];
     if (!file) return;
-    wizard.videoFile = file;
+
     wizard.videoFilename = null;
     document.querySelectorAll("#video-list .option-item").forEach((n) => n.classList.remove("selected"));
     updateNextEnabled();
+
+    const statusEl = el("upload-status");
+    statusEl.textContent = `uploading ${file.name}…`;
+    statusEl.className = "upload-status uploading";
+    el("btn-next").disabled = true;
+
+    const form = new FormData();
+    form.append("video_file", file);
+    try {
+      const res = await fetch(`${API_BASE_URL}/api/videos/upload`, { method: "POST", body: form });
+      const data = await res.json();
+      if (!res.ok) throw new Error(data.detail || "upload failed");
+
+      wizard.videoFilename = data.filename;
+      statusEl.textContent = `uploaded: ${data.filename}`;
+      statusEl.className = "upload-status success";
+      updateNextEnabled();
+    } catch (err) {
+      statusEl.textContent = err.message;
+      statusEl.className = "upload-status error";
+      el("video-upload").value = "";
+    }
   });
 
   el("btn-back").addEventListener("click", () => goToStep(Math.max(1, wizard.step - 1)));
@@ -249,5 +261,4 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   setupCalibrateNow();
-  setupOptionsWarning();
 });

@@ -46,13 +46,17 @@ DENSITY_ALARM_ONSET_PERSONS_PER_M2 = 2.5
 # anyway. Short-range shots have few, large, clearly-resolved subjects,
 # where the SAME sensitivity produces false positives that stand out
 # individually, so a stricter threshold reads as more correct there.
-# These three numbers are the operator's own picks, not independently
-# re-measured per range the way 0.15 was for the Myeongdong clip
-# specifically (scripts/diagnose_tiled_nms.py) -- treat them as reasonable
-# starting points per range, not validated optima.
+# These are the only three confidence-threshold values used anywhere in
+# the live pipeline/dashboard -- mid (0.15) is also scripts/live_perception.py's
+# own standalone CLI default (--confidence-threshold), the value actually
+# measured against this project's false-positive diagnostics
+# (scripts/diagnose_tiled_nms.py, outputs/nms_diagnosis_conf0.15/). long
+# and short are the operator's own picks by analogy, not independently
+# re-measured the way mid was -- treat them as reasonable starting points
+# per range, not validated optima.
 RANGE_PRESETS: dict[str, float] = {
     "long": 0.05,
-    "mid": 0.10,
+    "mid": 0.15,
     "short": 0.30,
 }
 DEFAULT_RANGE_PRESET = "mid"

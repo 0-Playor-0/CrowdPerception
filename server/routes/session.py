@@ -15,11 +15,6 @@ DATA_DIR = Path("data")
 CALIBRATION_DIR = Path("calibration")
 UPLOAD_DIR = Path("data/uploads")
 
-TILING_DOWNSCALE_WARNING = (
-    "downscale is on with tiling on -- measured 69% recall loss on dense frames "
-    "with this combination; consider --no-downscale or --no-tile instead"
-)
-
 
 @router.post("/api/session/start")
 async def api_session_start(
@@ -55,8 +50,6 @@ async def api_session_start(
     if not calibration_path.exists():
         raise HTTPException(404, f"calibration not found: {calibration_path}")
 
-    warning = TILING_DOWNSCALE_WARNING if (tile and downscale) else None
-
     await run_in_threadpool(start_session, video_path, calibration_path, range_preset, tile, downscale)
 
     return {
@@ -67,7 +60,6 @@ async def api_session_start(
         "confidence_threshold": RANGE_PRESETS[range_preset],
         "tile": tile,
         "downscale": downscale,
-        "warning": warning,
     }
 
 

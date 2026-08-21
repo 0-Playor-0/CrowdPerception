@@ -3,8 +3,14 @@ using the height-ESTIMATED calibration from C2.4 (see docs -- NOT measured).
 
 Reuses perception/detector.py, perception/tracker.py, perception/geometry.py,
 perception/velocity.py directly, independent of scripts/live_perception.py's
-full pipeline -- kept as-is because docs/REAL_FOOTAGE_FINDINGS.md's C2.5
-findings cite this exact script and are meant to stay reproducible from it.
+full pipeline.
+
+docs/REAL_FOOTAGE_FINDINGS.md's C2.5 findings were produced by this script
+at --confidence-threshold 0.02 (the whole project's default at the time).
+That default has since moved to 0.05 to keep exactly 3 confidence values
+in use anywhere in the project (see server/pipeline_runner.py's
+RANGE_PRESETS) -- pass --confidence-threshold 0.02 explicitly to reproduce
+those exact historical figures; the current default will not.
 
 Density is computed directly here (persons in the calibrated TARGET quad /
 quad area, and per 1m grid cell for the spatial peak) -- NOT analytics/pressure.py
@@ -57,7 +63,7 @@ def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     parser.add_argument("--video", required=True, type=Path)
     parser.add_argument("--model", default="models/yolo11s.pt")
-    parser.add_argument("--confidence-threshold", type=float, default=0.02)   # lowered from 0.3 -> 0.2 -> 0.1 -> 0.02, see scripts/live_perception.py's --confidence-threshold help text
+    parser.add_argument("--confidence-threshold", type=float, default=0.05)   # "long" range preset -- this script's default subject (data/127690-739144743.mp4) is a long-range elevated crowd shot; see server/pipeline_runner.py's RANGE_PRESETS, the only 3 confidence values used anywhere in this project
     parser.add_argument("--tile", action="store_true")
     parser.add_argument("--cell-size-m", type=float, default=1.0)
     parser.add_argument("--window-seconds", type=float, default=0.5)
